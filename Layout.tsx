@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, Phone, Mail, MapPin, Lock } from 'lucide-react';
-import { Page } from '../types';
+import { Page } from './types';
 import InvestorLoginModal from './InvestorLoginModal';
 
 interface LayoutProps {
