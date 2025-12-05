@@ -6,13 +6,15 @@ interface FadeInProps {
   delay?: number;
   className?: string;
   direction?: 'up' | 'left' | 'right' | 'none';
+  fullWidth?: boolean; // Added this to prevent TypeScript error in Hero.tsx
 }
 
 export const FadeIn: React.FC<FadeInProps> = ({ 
   children, 
   delay = 0, 
   className = "", 
-  direction = 'up' 
+  direction = 'up',
+  fullWidth = false
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
@@ -52,7 +54,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
       ref={domRef}
       className={`transition-all duration-1000 ease-out transform ${
         isVisible ? 'opacity-100' : 'opacity-0'
-      } ${getTransform()} ${className}`}
+      } ${getTransform()} ${className} ${fullWidth ? 'w-full' : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
