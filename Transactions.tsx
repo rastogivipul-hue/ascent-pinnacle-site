@@ -23,7 +23,7 @@ const TRANSACTIONS = [
     type: "Structured Finance",
     amount: "INR 1 Billion",
     description: "Structured Credit Resolution and distress transaction funding.",
-    year: "Recent",
+    year: "2024",
     icon: Building2
   },
   {
@@ -33,7 +33,7 @@ const TRANSACTIONS = [
     type: "Structured Finance",
     amount: "INR 970 Million",
     description: "Structured funding and special situation funding execution.",
-    year: "Recent",
+    year: "2022",
     icon: LayoutTemplate
   },
   
@@ -45,7 +45,7 @@ const TRANSACTIONS = [
     type: "Debt Syndication",
     amount: "INR 5 Billion",
     description: "Primary Issue NCD: Private Placement with leading Pension Funds.",
-    year: "Recent",
+    year: "2014",
     icon: Landmark
   },
   {
@@ -55,7 +55,7 @@ const TRANSACTIONS = [
     type: "Debt Capital Markets",
     amount: "INR 2.75 Billion",
     description: "Primary Issue NCD execution with leading Pension Funds.",
-    year: "Recent",
+    year: "2015",
     icon: Landmark
   },
   {
@@ -65,7 +65,7 @@ const TRANSACTIONS = [
     type: "Advisory",
     amount: "INR 1.8 Billion",
     description: "On Exposure Domestic NCD - NCD Takeover Advisory.",
-    year: "Recent",
+    year: "2017",
     icon: Briefcase
   },
   {
@@ -75,7 +75,7 @@ const TRANSACTIONS = [
     type: "Syndication",
     amount: "INR 2 Billion",
     description: "Short term credit syndication.",
-    year: "Recent",
+    year: "2021",
     icon: Landmark
   },
 
@@ -86,9 +86,9 @@ const TRANSACTIONS = [
     note: "(formerly Bhushan Steel)",
     sector: "Integrated Steel",
     type: "Equity Placement",
-    amount: "INR 2.35 Billion",
+    amount: "₹ 2.35 Billion",
     description: "Equity placement with institutional investors.",
-    year: "Recent",
+    year: "2013",
     icon: Factory
   },
   {
@@ -96,9 +96,9 @@ const TRANSACTIONS = [
     client: "Evonith Steel",
     sector: "Steel & Manufacturing",
     type: "Debt Syndication",
-    amount: "₹150 Cr",
+    amount: "₹ 1.50 Billion",
     description: "Term loan syndication via Union Bank of India for capacity expansion.",
-    year: "2024",
+    year: "2025",
     icon: Factory
   },
   
@@ -108,9 +108,9 @@ const TRANSACTIONS = [
     client: "Adani Enterprises Ltd",
     sector: "Conglomerate",
     type: "Credit Facility",
-    amount: "INR 500 Million",
+    amount: "₹ 500 Million",
     description: "Short Term Credit Facility - Private Placement with Treasuries.",
-    year: "Recent",
+    year: "2013",
     icon: Zap
   },
   {
@@ -118,7 +118,7 @@ const TRANSACTIONS = [
     client: "Solar EPC Corp",
     sector: "Renewable Energy",
     type: "Working Capital",
-    amount: "₹120 Cr",
+    amount: "₹ 1.20 Billion",
     description: "Consortium lending arrangement for working capital requirements.",
     year: "2022",
     icon: Sun
@@ -128,7 +128,7 @@ const TRANSACTIONS = [
     client: "Lava International",
     sector: "Consumer Electronics",
     type: "Credit Enhancement",
-    amount: "₹500 Cr",
+    amount: "₹ 500 Million",
     description: "Structured credit enhancement and rating advisory via Infomerics.",
     year: "2023",
     icon: Smartphone
@@ -138,9 +138,9 @@ const TRANSACTIONS = [
     client: "Tulip Telecom Limited",
     sector: "Telecom Service",
     type: "Syndication",
-    amount: "INR 3 Billion",
+    amount: "₹ 3 Billion",
     description: "Debt syndication with domestic financial institutions.",
-    year: "Recent",
+    year: "2010",
     icon: Globe
   },
   
@@ -150,9 +150,9 @@ const TRANSACTIONS = [
     client: "RHC Holding Pvt Ltd",
     sector: "Healthcare / Holding",
     type: "Promoter Funding",
-    amount: "INR 200 Million",
+    amount: "₹ 200 Million",
     description: "Promoter funding for settlement at HoldCo level.",
-    year: "Recent",
+    year: "2014",
     icon: Activity
   },
 ];
