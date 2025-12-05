@@ -1,92 +1,241 @@
 import React from 'react';
-import { CheckCircle } from 'lucide-react';
+import { 
+  Building2, 
+  Landmark, 
+  Factory, 
+  Zap, 
+  Briefcase, 
+  Activity, 
+  Globe, 
+  Smartphone, 
+  Sun,
+  LayoutTemplate
+} from 'lucide-react';
 import { FadeIn } from './UI';
 
-const transactions = [
+// --- DATA CONFIGURATION ---
+const TRANSACTIONS = [
+  // --- REAL ESTATE & INFRA ---
   {
-    client: "Evonith",
+    id: 1,
+    client: "Ameya Group",
+    sector: "Real Estate",
+    type: "Structured Finance",
+    amount: "INR 1 Billion",
+    description: "Structured Credit Resolution and distress transaction funding.",
+    year: "Recent",
+    icon: Building2
+  },
+  {
+    id: 4,
+    client: "Shapoorji Pallonji Group",
+    sector: "Real Estate",
+    type: "Structured Finance",
+    amount: "INR 970 Million",
+    description: "Structured funding and special situation funding execution.",
+    year: "Recent",
+    icon: LayoutTemplate
+  },
+  
+  // --- FINANCIAL SERVICES & BANKING ---
+  {
+    id: 2,
+    client: "Mahindra & Mahindra Fin. Serv.",
+    sector: "Financial Services",
+    type: "Debt Syndication",
+    amount: "INR 5 Billion",
+    description: "Primary Issue NCD: Private Placement with leading Pension Funds.",
+    year: "Recent",
+    icon: Landmark
+  },
+  {
+    id: 5,
+    client: "Dewan Housing Finance Ltd",
+    sector: "Financial Services",
+    type: "Debt Capital Markets",
+    amount: "INR 2.75 Billion",
+    description: "Primary Issue NCD execution with leading Pension Funds.",
+    year: "Recent",
+    icon: Landmark
+  },
+  {
+    id: 7,
+    client: "First Gulf Bank (India)",
+    sector: "Banking",
+    type: "Advisory",
+    amount: "INR 1.8 Billion",
+    description: "On Exposure Domestic NCD - NCD Takeover Advisory.",
+    year: "Recent",
+    icon: Briefcase
+  },
+  {
+    id: 8,
+    client: "Jana Small Finance Bank",
+    sector: "Banking",
+    type: "Syndication",
+    amount: "INR 2 Billion",
+    description: "Short term credit syndication.",
+    year: "Recent",
+    icon: Landmark
+  },
+
+  // --- MANUFACTURING & INDUSTRY ---
+  {
+    id: 9,
+    client: "Tata Steel Ltd",
+    note: "(formerly Bhushan Steel)",
+    sector: "Integrated Steel",
+    type: "Equity Placement",
+    amount: "INR 2.35 Billion",
+    description: "Equity placement with institutional investors.",
+    year: "Recent",
+    icon: Factory
+  },
+  {
+    id: 13,
+    client: "Evonith Steel",
     sector: "Steel & Manufacturing",
-    type: "Structured Debt",
+    type: "Debt Syndication",
     amount: "₹150 Cr",
-    details: "Term Loan Syndication via UBI",
-    status: "Closed"
+    description: "Term loan syndication via Union Bank of India for capacity expansion.",
+    year: "2024",
+    icon: Factory
+  },
+  
+  // --- CONGLOMERATE, ENERGY & TECH ---
+  {
+    id: 3,
+    client: "Adani Enterprises Ltd",
+    sector: "Conglomerate",
+    type: "Credit Facility",
+    amount: "INR 500 Million",
+    description: "Short Term Credit Facility - Private Placement with Treasuries.",
+    year: "Recent",
+    icon: Zap
   },
   {
-    client: "Pratap University",
-    sector: "Education",
-    type: "Strategic Advisory",
-    amount: "Undisclosed",
-    details: "Investor Meet & Strategic Alliance with Caparo",
-    status: "Mandate"
+    id: 12,
+    client: "Solar EPC Corp",
+    sector: "Renewable Energy",
+    type: "Working Capital",
+    amount: "₹120 Cr",
+    description: "Consortium lending arrangement for working capital requirements.",
+    year: "2022",
+    icon: Sun
   },
   {
+    id: 11,
     client: "Lava International",
     sector: "Consumer Electronics",
     type: "Credit Enhancement",
-    amount: "N/A",
-    details: "Rating Advisory with Infomerics",
-    status: "Ongoing"
+    amount: "₹500 Cr",
+    description: "Structured credit enhancement and rating advisory via Infomerics.",
+    year: "2023",
+    icon: Smartphone
   },
   {
-    client: "Confidential",
-    sector: "Real Estate",
-    type: "Last Mile Funding",
-    amount: "₹75 Cr",
-    details: "Project Completion Finance",
-    status: "Closed"
+    id: 10,
+    client: "Tulip Telecom Limited",
+    sector: "Telecom Service",
+    type: "Syndication",
+    amount: "INR 3 Billion",
+    description: "Debt syndication with domestic financial institutions.",
+    year: "Recent",
+    icon: Globe
   },
+  
+  // --- SPECIAL SITUATIONS ---
   {
-    client: "Mid-Market Infra",
-    sector: "Infrastructure",
-    type: "OTS Funding",
-    amount: "₹45 Cr",
-    details: "One Time Settlement Financing",
-    status: "Closed"
-  }
+    id: 6,
+    client: "RHC Holding Pvt Ltd",
+    sector: "Healthcare / Holding",
+    type: "Promoter Funding",
+    amount: "INR 200 Million",
+    description: "Promoter funding for settlement at HoldCo level.",
+    year: "Recent",
+    icon: Activity
+  },
 ];
 
-const Transactions: React.FC = () => {
+const TransactionsPage: React.FC = () => {
   return (
-    <div className="pt-24 pb-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-16">
+    <div className="w-full bg-slate-50 min-h-screen pt-24 pb-20">
+      
+      {/* --- Header Section --- */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-16">
         <FadeIn>
-          <h1 className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-6">Track Record</h1>
-          <div className="h-1 w-20 bg-brand-accent mb-6"></div>
-          <p className="text-slate-600 text-lg max-w-2xl">
-            A selection of our recent mandates and closures. We take pride in executing complex transactions with discretion and speed.
+          <div className="flex items-center gap-3 mb-4">
+            <span className="h-[2px] w-8 bg-amber-600"></span>
+            <span className="text-amber-600 font-bold tracking-widest text-xs uppercase">
+              Track Record
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-6">
+            Selected <span className="text-slate-500">Transactions</span>
+          </h2>
+          <p className="max-w-2xl text-slate-600 text-lg leading-relaxed">
+            A history of complex value creation. From structured debt to distressed 
+            turnarounds, we deliver capital when it matters most.
           </p>
         </FadeIn>
       </div>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {transactions.map((deal, idx) => (
-            <FadeIn key={idx} delay={idx * 100}>
-              <div className="bg-white border-t-4 border-slate-900 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
+
+      {/* --- Deal Tombstones Grid --- */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {TRANSACTIONS.map((deal, index) => (
+            <FadeIn key={deal.id} delay={index * 50}>
+              <div className="group relative bg-white border border-slate-200 p-8 h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 rounded-sm overflow-hidden flex flex-col">
+                
+                {/* Hover Top Border Accent */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-amber-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+                {/* Card Header: Icon & Amount Badge */}
                 <div className="flex justify-between items-start mb-6">
-                  <span className="px-2 py-1 bg-slate-100 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-sm">
-                    {deal.status}
+                  <div className="p-3 bg-slate-50 rounded-full text-amber-600 group-hover:bg-amber-50 transition-colors border border-slate-100">
+                    <deal.icon size={22} strokeWidth={1.5} />
+                  </div>
+                  <span className="text-[11px] font-bold text-slate-500 border border-slate-200 bg-slate-50 px-2 py-1 rounded tracking-wide">
+                    {deal.amount}
                   </span>
-                  <CheckCircle size={18} className="text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-slate-900 mb-1">{deal.client}</h3>
-                <p className="text-xs text-brand-accent uppercase tracking-wide font-semibold mb-6">{deal.sector}</p>
-                <div className="space-y-3 border-t border-slate-100 pt-6">
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase">Transaction Type</p>
-                    <p className="text-sm font-medium text-slate-700">{deal.type}</p>
+
+                {/* Card Content */}
+                <div className="flex-grow">
+                  <div className="text-[10px] font-bold text-amber-600 uppercase tracking-widest mb-2">
+                    {deal.type}
                   </div>
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase">Value</p>
-                    <p className="text-sm font-medium text-slate-900">{deal.amount}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-400 uppercase">Role</p>
-                    <p className="text-sm font-medium text-slate-700">{deal.details}</p>
-                  </div>
+                  
+                  <h3 className="text-xl font-serif text-slate-900 leading-tight mb-1">
+                    {deal.client}
+                  </h3>
+                  
+                  {/* Optional Note for company name variations */}
+                  {deal.note && (
+                    <span className="text-xs text-slate-400 block mb-3 italic">
+                      {deal.note}
+                    </span>
+                  )}
+                  
+                  {/* Spacer if no note, to align grids slightly better */}
+                  {!deal.note && <div className="h-2 mb-2"></div>}
+
+                  <p className="text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4 mt-2">
+                    {deal.description}
+                  </p>
                 </div>
-                <div className="mt-8 text-center">
-                  <p className="text-[10px] text-slate-400">ASCENT PINNACLE CAPITAL</p>
+
+                {/* Footer: Sector & Year */}
+                <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-50">
+                  <div className="flex items-center gap-2 text-xs text-slate-400 font-medium uppercase tracking-wide">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                    {deal.sector}
+                  </div>
+                  <span className="text-xs text-slate-300 font-serif italic">
+                    {deal.year}
+                  </span>
                 </div>
+
               </div>
             </FadeIn>
           ))}
@@ -96,4 +245,4 @@ const Transactions: React.FC = () => {
   );
 };
 
-export default Transactions;
+export default TransactionsPage;
