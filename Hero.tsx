@@ -8,10 +8,12 @@ import {
   Globe,
   ChevronDown 
 } from 'lucide-react';
+
+// FIX: Importing from the combined UI.tsx file you just created
 import { CountUp, FadeIn } from './UI';
 
 interface HeroProps {
-  onNavigate: (page: any) => void;
+  onNavigate: (page: string) => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
