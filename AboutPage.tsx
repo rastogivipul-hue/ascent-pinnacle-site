@@ -2,7 +2,7 @@ import React from 'react';
 import { Quote, Linkedin, Mail } from 'lucide-react';
 
 /* FIX: Changed import path to match your flat folder structure */
-import { FadeIn } from './FadeIn';
+import { FadeIn } from './UI';
 
 // --- IMAGE IMPORTS ---
 // Ensure these files exist in the SAME folder as AboutPage.tsx
