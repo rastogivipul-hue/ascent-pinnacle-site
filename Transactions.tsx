@@ -21,7 +21,7 @@ const TRANSACTIONS = [
     client: "Ameya Group",
     sector: "Real Estate",
     type: "Structured Finance",
-    amount: "INR 1 Billion",
+    amount: "₹ 1 Billion",
     description: "Structured Credit Resolution and distress transaction funding.",
     year: "2024",
     icon: Building2
@@ -31,7 +31,7 @@ const TRANSACTIONS = [
     client: "Shapoorji Pallonji Group",
     sector: "Real Estate",
     type: "Structured Finance",
-    amount: "INR 970 Million",
+    amount: "₹ 970 Million",
     description: "Structured funding and special situation funding execution.",
     year: "2022",
     icon: LayoutTemplate
@@ -43,7 +43,7 @@ const TRANSACTIONS = [
     client: "Mahindra & Mahindra Fin. Serv.",
     sector: "Financial Services",
     type: "Debt Syndication",
-    amount: "INR 5 Billion",
+    amount: "₹ 5 Billion",
     description: "Primary Issue NCD: Private Placement with leading Pension Funds.",
     year: "2014",
     icon: Landmark
@@ -53,7 +53,7 @@ const TRANSACTIONS = [
     client: "Dewan Housing Finance Ltd",
     sector: "Financial Services",
     type: "Debt Capital Markets",
-    amount: "INR 2.75 Billion",
+    amount: "₹ 2.75 Billion",
     description: "Primary Issue NCD execution with leading Pension Funds.",
     year: "2015",
     icon: Landmark
@@ -63,7 +63,7 @@ const TRANSACTIONS = [
     client: "First Gulf Bank (India)",
     sector: "Banking",
     type: "Advisory",
-    amount: "INR 1.8 Billion",
+    amount: "₹ 1.8 Billion",
     description: "On Exposure Domestic NCD - NCD Takeover Advisory.",
     year: "2017",
     icon: Briefcase
@@ -73,7 +73,7 @@ const TRANSACTIONS = [
     client: "Jana Small Finance Bank",
     sector: "Banking",
     type: "Syndication",
-    amount: "INR 2 Billion",
+    amount: "₹ 2 Billion",
     description: "Short term credit syndication.",
     year: "2021",
     icon: Landmark
