@@ -93,11 +93,11 @@ const TRANSACTIONS = [
   },
   {
     id: 13,
-    client: "Evonith Steel",
+    client: "Evonith Group",
     sector: "Steel & Manufacturing",
     type: "Debt Syndication",
     amount: "₹ 1.50 Billion",
-    description: "Working Capital syndication via for capacity expansion.",
+    description: "Working Capital syndication",
     year: "2025",
     icon: Factory
   },
