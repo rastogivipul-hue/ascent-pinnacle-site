@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './components/Layout';
-import Hero from './components/Hero';
-import { FadeIn } from './components/UI';
+import Layout from './Layout';
+import Hero from './Hero';
+import { FadeIn } from './UI';
 import { Page, TeamMember, Transaction } from './types';
 import { TEAM_MEMBERS, TRANSACTIONS, SERVICES, CASE_STUDIES, METHODOLOGY_STEPS, SECTORS, INSIGHT_POSTS } from './constants';
 import { ArrowRight, CheckCircle2, ChevronRight, Award, Quote, Building, ShieldAlert, TrendingUp, MapPin, Mail, Phone, FileText, ArrowUpRight } from 'lucide-react';
