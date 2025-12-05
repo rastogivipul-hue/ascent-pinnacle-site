@@ -26,11 +26,7 @@ const TEAM_MEMBERS = [
     linkedin: "www.linkedin.com/in/vipul-rastogi-ba65a762",
     email: "vkr@ascentpinnacle.com",
     bio: [
-      "Vipul Rastogi is an investment banking professional with deep expertise in debt syndication, structured financing, and closing complex transactions across real estate, infrastructure, and mid-market sectors. He is known for unlocking capital in challenging situations through strong lender relationships, disciplined structuring, and sharp negotiation.
-
-With a robust network across banks, NBFCs, AIFs, family offices, and global investors, Vipul consistently executes high-stakes mandates with speed and precision. Under his leadership, Ascent Pinnacle is transitioning from a boutique advisory into a broader investment platform with a planned Category-II AIF focused on special opportunities and structured credit.
-
-He is recognized for his clarity, integrity, and ability to drive outcomes in the most demanding financial environments."
+      "Vipul Rastogi is an investment banking professional with deep expertise in debt syndication, structured financing, and closing complex transactions across real estate, infrastructure, and mid-market sectors. He is known for unlocking capital in challenging situations through strong lender relationships, disciplined structuring, and sharp negotiation. With a robust network across banks, NBFCs, AIFs, family offices, and global investors, Vipul consistently executes high-stakes mandates with speed and precision. Under his leadership, Ascent Pinnacle is transitioning from a boutique advisory into a broader investment platform with a planned Category-II AIF focused on special opportunities and structured credit. He is recognized for his clarity, integrity, and ability to drive outcomes in the most demanding financial environments."
     ]
   },
   {
@@ -40,11 +36,7 @@ He is recognized for his clarity, integrity, and ability to drive outcomes in th
     linkedin: "https://www.linkedin.com/in/ashish-kumar-92a93b12b/",
     email: "ashish.kumar@ascentpinnacle.com",
     bio: [
-      "Ashish Kumar brings strong analytical depth and hands-on execution experience across debt syndication, structured credit, and special situation transactions. He is skilled in financial modeling, credit evaluation, transaction documentation, and end-to-end deal management.
-
-Ashish plays a critical role in navigating complex mandates, coordinating with lenders, and ensuring smooth closure of transactions under tight timelines. His disciplined approach, sharp problem-solving, and commitment to precision make him a key contributor to Ascent Pinnacle’s growing transaction capability.
-
-He works closely with promoters, NBFCs, banks, and AIFs, supporting the firm’s mission of delivering reliable, high-quality capital solutions."
+      "Ashish Kumar brings strong analytical depth and hands-on execution experience across debt syndication, structured credit, and special situation transactions. He is skilled in financial modeling, credit evaluation, transaction documentation, and end-to-end deal management. Ashish plays a critical role in navigating complex mandates, coordinating with lenders, and ensuring smooth closure of transactions under tight timelines. His disciplined approach, sharp problem-solving, and commitment to precision make him a key contributor to Ascent Pinnacle’s growing transaction capability. He works closely with promoters, NBFCs, banks, and AIFs, supporting the firm’s mission of delivering reliable, high-quality capital solutions."
     ]
   }
 ];
