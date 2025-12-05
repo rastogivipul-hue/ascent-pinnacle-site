@@ -97,7 +97,7 @@ const TRANSACTIONS = [
     sector: "Steel & Manufacturing",
     type: "Debt Syndication",
     amount: "₹ 1.50 Billion",
-    description: "Term loan syndication via Union Bank of India for capacity expansion.",
+    description: "Working Capital syndication via for capacity expansion.",
     year: "2025",
     icon: Factory
   },
