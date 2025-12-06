@@ -2,12 +2,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Clock, BookOpen, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { INSIGHTS } from './data';
 
-// IMPORT THE DATA HERE
-// Ensure data.ts is in the same folder, otherwise use '../data'
-import { INSIGHTS } from './data'; 
-
-// Fallback FadeIn component if you don't have the UI file yet
+// Internal FadeIn component since we might not have UI.tsx
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
   <div className="animate-fade-in" style={{ animationDelay: `${delay}ms` }}>
     {children}
@@ -15,7 +12,6 @@ const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: nu
 );
 
 const InsightsPage: React.FC = () => {
-  // Safety check: ensure insights exist before slicing
   if (!INSIGHTS || INSIGHTS.length === 0) {
     return <div className="p-12 text-center text-slate-500">No insights found.</div>;
   }
@@ -23,7 +19,6 @@ const InsightsPage: React.FC = () => {
   const featuredPost = INSIGHTS[0];
   const otherPosts = INSIGHTS.slice(1);
 
-  // Newsletter Logic
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -31,8 +26,7 @@ const InsightsPage: React.FC = () => {
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    
-    // Simulating an API call for demo purposes
+    // Simulating an API call
     setTimeout(() => {
       setStatus('success');
       setMessage('You have been subscribed to our deal flow digest.');
@@ -86,7 +80,6 @@ const InsightsPage: React.FC = () => {
               <Link to={`/insights/${post.id}`} className="group flex flex-col h-full bg-white border border-slate-200 hover:border-amber-500/50 hover:shadow-lg transition-all duration-300 rounded-sm overflow-hidden">
                 <div className="p-6 pb-0 flex items-start justify-between mb-4">
                   <div className="p-3 bg-slate-50 rounded-full text-slate-500 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">
-                    {/* Render the Lucide Icon Component */}
                     <post.icon size={20} />
                   </div>
                   <span className="text-xs font-medium text-slate-400 bg-slate-50 px-2 py-1 rounded border border-slate-100">{post.category}</span>
@@ -108,7 +101,7 @@ const InsightsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Functional Newsletter Section */}
+      {/* Newsletter Section */}
       <div className="bg-slate-900 py-20 border-t border-slate-800">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
@@ -135,7 +128,6 @@ const InsightsPage: React.FC = () => {
               </button>
             </form>
 
-            {/* Status Messages */}
             {status === 'success' && (
               <div className="mt-4 flex items-center justify-center gap-2 text-green-400 text-sm">
                 <CheckCircle size={16} /> {message}
