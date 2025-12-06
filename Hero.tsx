@@ -76,12 +76,12 @@ const SECTORS = [
 const INSIGHT_POSTS = [
   {
     title: "The IBC Landscape: Navigating Insolvency 5 Years On",
-    date: "October 2023",
+    date: "October 2025",
     category: "Regulatory"
   },
   {
     title: "Private Credit: The New Alpha in Indian Markets",
-    date: "September 2023",
+    date: "June 2024",
     category: "Market Trends"
   },
   {
@@ -136,7 +136,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-medium tracking-tight leading-[1.05] mb-8 text-white drop-shadow-lg">
                 Structuring Capital for <br className="hidden lg:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400">
-                  Complex Value Creation.
+                  Value Creation.
                 </span>
               </h1>
 
