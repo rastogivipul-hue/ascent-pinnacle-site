@@ -1,16 +1,28 @@
 // src/BlogPost.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Share2, Check } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { INSIGHTS } from './data';
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
 
   // Find the post
   const post = INSIGHTS.find((p) => p.id === Number(id));
+
+  // Handle Share Functionality
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
 
   if (!post) {
     return (
@@ -51,14 +63,40 @@ const BlogPost: React.FC = () => {
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Insights
         </Link>
 
-        <div className="prose prose-lg prose-slate prose-headings:font-serif prose-a:text-amber-600 hover:prose-a:text-amber-500">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+        {/* FIXED: We use the 'components' prop to manually style every Markdown element.
+            This ensures Headers look big, Lists have bullets, and Spacing is correct.
+        */}
+        <div className="text-slate-800 leading-relaxed">
+          <ReactMarkdown
+            components={{
+              h1: ({node, ...props}) => <h1 className="text-3xl md:text-4xl font-serif text-slate-900 font-bold mt-12 mb-6" {...props} />,
+              h2: ({node, ...props}) => <h2 className="text-2xl md:text-3xl font-serif text-slate-900 font-bold mt-10 mb-5 border-b border-slate-200 pb-2" {...props} />,
+              h3: ({node, ...props}) => <h3 className="text-xl font-serif text-slate-900 font-bold mt-8 mb-4" {...props} />,
+              p: ({node, ...props}) => <p className="mb-6 text-lg text-slate-700 leading-8" {...props} />,
+              ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+              ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+              li: ({node, ...props}) => <li className="pl-2" {...props} />,
+              strong: ({node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
+              blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-amber-500 pl-4 italic my-6 text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />,
+              hr: ({node, ...props}) => <hr className="my-10 border-slate-200" {...props} />,
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </div>
 
+        {/* FIXED: Share Button with Copy Functionality */}
         <div className="mt-12 pt-8 border-t border-slate-200 flex items-center justify-between">
             <span className="text-slate-500 text-sm">Written by Ascent Pinnacle Capital</span>
-            <button className="flex items-center gap-2 text-slate-600 hover:text-amber-600 transition-colors">
-                <Share2 size={16} /> Share
+            
+            <button 
+              onClick={handleShare}
+              className={`flex items-center gap-2 transition-all duration-300 ${
+                copied ? 'text-green-600' : 'text-slate-600 hover:text-amber-600'
+              }`}
+            >
+                {copied ? <Check size={18} /> : <Share2 size={18} />}
+                {copied ? 'Link Copied!' : 'Share Article'}
             </button>
         </div>
       </div>
