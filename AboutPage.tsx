@@ -1,3 +1,4 @@
+// src/AboutPage.tsx
 import React from 'react';
 import { Quote, Linkedin, Mail } from 'lucide-react';
 
@@ -25,7 +26,8 @@ const TEAM_MEMBERS = [
     name: "Vipul Rastogi",
     role: "Managing Director",
     imageUrl: vkrpic,
-    linkedin: "www.linkedin.com/in/vipul-rastogi-ba65a762",
+    // FIXED: Added 'https://' so the link works correctly
+    linkedin: "https://www.linkedin.com/in/vipul-rastogi-ba65a762/",
     email: "vkr@ascentpinnacle.com",
     bio: [
       "Vipul Rastogi is an investment banking professional with deep expertise in debt syndication, structured financing, and closing complex transactions across real estate, infrastructure, and mid-market sectors. He is known for unlocking capital in challenging situations through strong lender relationships, disciplined structuring, and sharp negotiation. With a robust network across banks, NBFCs, AIFs, family offices, and global investors, Vipul consistently executes high-stakes mandates with speed and precision. Under his leadership, Ascent Pinnacle is transitioning from a boutique advisory into a broader investment platform with a planned Category-II AIF focused on special opportunities and structured credit. He is recognized for his clarity, integrity, and ability to drive outcomes in the most demanding financial environments."
