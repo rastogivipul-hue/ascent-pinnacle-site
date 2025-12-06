@@ -1,318 +1,184 @@
-import React from 'react';
-import { 
-  ArrowRight, 
-  ChevronRight, 
-  Landmark, 
-  Handshake, 
-  ShieldCheck, 
-  Globe,
-  ChevronDown,
-  // New Icons added based on your data
-  Search,
-  FileSearch,
-  Layers,
-  Rocket,
-  Target,
-  Building,
-  Factory,
-  Radio
-} from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Plus } from 'lucide-react';
+import { FadeIn } from './UI'; // Assuming you have this from previous code
 
-import { CountUp, FadeIn } from './UI';
+// --- DATA: REAL DEALS (Personalized) ---
+const TICKER_ITEMS = [
+  "LATEST CLOSING: ₹150 CR TERM LOAN • EVONITH STEEL • SPECIAL SITUATIONS",
+  "ADVISORY: PRATAP UNIVERSITY • INVESTOR MEET • CAPARO GROUP",
+  "CREDIT RATING: LAVA INTERNATIONAL • INFOMERICS • STRUCTURED FINANCE",
+  "MARKET UPDATE: IBC RECOVERIES UP 12% YOY • PRIVATE CREDIT YIELDS STABILIZING AT 14-16%"
+];
 
-// --- DATA CONSTANTS ---
-
-const METHODOLOGY_STEPS = [
+const METHODOLOGY_LIST = [
   {
+    id: "01",
     title: "Strategic Origination",
-    description: "Identifying off-market opportunities before they hit the street.",
-    icon: Search
+    desc: "Proprietary off-market sourcing beyond standard street flow."
   },
   {
-    title: "Forensic Due Diligence",
-    description: "Rigorous stress-testing of asset quality and legal standing.",
-    icon: FileSearch
+    id: "02",
+    title: "Forensic Diligence",
+    desc: "Asset quality stress-testing and legal structural analysis."
   },
   {
+    id: "03",
     title: "Bespoke Structuring",
-    description: "Engineering credit protections and cash-flow ring-fencing.",
-    icon: Layers
+    desc: "Cash-flow ring-fencing and downside protection engineering."
   },
   {
-    title: "Controlled Deployment",
-    description: "Milestone-based capital infusion ensuring proper utilization.",
-    icon: Rocket
-  },
-  {
+    id: "04",
     title: "Value Realization",
-    description: "Active monitoring to ensure optimal exit and yield.",
-    icon: Target
+    desc: "Active monitoring and controlled exit mechanisms."
   }
 ];
-
-const SECTORS = [
-  {
-    title: "Real Estate",
-    description: "Last-mile funding & distressed resolution.",
-    icon: Building
-  },
-  {
-    title: "Heavy Industry",
-    description: "Capex financing & debt restructuring.",
-    icon: Factory
-  },
-  {
-    title: "Financial Services",
-    description: "Capital adequacy & NCD placements.",
-    icon: Landmark
-  },
-  {
-    title: "Infrastructure",
-    description: "Long-term financing & syndication.",
-    icon: Radio
-  }
-];
-
-const INSIGHT_POSTS = [
-  {
-    title: "The IBC Landscape: Navigating Insolvency 5 Years On",
-    date: "October 2023",
-    category: "Regulatory"
-  },
-  {
-    title: "Private Credit: The New Alpha in Indian Markets",
-    date: "September 2023",
-    category: "Market Trends"
-  },
-  {
-    title: "Structuring for Downside Protection in Volatile Cycles",
-    date: "August 2023",
-    category: "Investment Strategy"
-  }
-];
-
-// --- COMPONENT ---
 
 interface HeroProps {
   onNavigate: (page: string) => void;
 }
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  return (
-    <div className="relative w-full bg-slate-950 text-white overflow-hidden group">
-      
-      {/* =========================================
-          PART 1: THE VISUAL HERO (TOP FOLD)
-      ========================================= */}
-      <div className="relative min-h-[95vh] flex flex-col justify-center">
-        
-        {/* --- Cinematic Background Treatment --- */}
-        <div className="absolute inset-0 z-0 select-none overflow-hidden">
-          <div className="absolute inset-0 bg-slate-950">
-            <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-              alt="Financial District Architecture" 
-              className="w-full h-full object-cover opacity-50 grayscale contrast-125 transform scale-100 transition-transform duration-[20s] ease-in-out group-hover:scale-110"
-            />
-          </div>
-          
-          {/* Layered Gradients */}
-          <div className="absolute inset-0 bg-slate-950/50 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-900/20" />
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
-        </div>
+  const [activeStep, setActiveStep] = useState<number>(0);
 
-        {/* --- Main Text Content --- */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-20">
-          <div className="max-w-4xl">
+  // Auto-cycle through methodology steps for subtle motion
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % METHODOLOGY_LIST.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full bg-[#050505] text-[#E5E5E5] overflow-hidden selection:bg-amber-900 selection:text-white font-sans">
+      
+      {/* --- BACKGROUND: NOISE & ATMOSPHERE (No Stock Photos) --- */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* CSS Noise Texture */}
+        <div className="absolute inset-0 opacity-[0.03]" 
+             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
+        </div>
+        
+        {/* Subtle Lighting Spotlights */}
+        <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-indigo-900/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-amber-900/10 rounded-full blur-[120px]" />
+      </div>
+
+      {/* --- MAIN CONTENT CONTAINER --- */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 min-h-screen flex flex-col justify-center pt-20 pb-32">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          {/* LEFT: EDITORIAL COPY */}
+          <div className="lg:col-span-7 flex flex-col gap-10">
             <FadeIn>
-              <div className="flex items-center gap-4 mb-6">
-                <span className="h-[1px] w-12 bg-amber-500"></span>
-                <span className="text-amber-500 font-semibold tracking-[0.2em] text-[11px] uppercase">
-                  Private Credit & Special Situations
+              {/* Monospace Eyebrow */}
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-amber-600 rounded-full animate-pulse"></span>
+                <span className="font-mono text-xs text-stone-400 tracking-widest uppercase">
+                  Ascent Pinnacle Capital • Est. 201X
                 </span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-medium tracking-tight leading-[1.05] mb-8 text-white drop-shadow-lg">
-                Structuring Capital for <br className="hidden lg:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400">
-                  Complex Value Creation.
-                </span>
+              {/* Headline: Serif, Solid, Massive */}
+              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-serif font-light tracking-tight leading-[0.95] text-white">
+                Capital for <br />
+                <span className="italic font-normal text-stone-200">Complexity.</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl font-light border-l border-slate-700 pl-6">
-                Ascent Pinnacle Capital is an integrated investment platform specializing in the Indian mid-market. 
-                We bridge the gap between institutional capital and distressed opportunities, delivering 
-                bespoke debt syndication and strategic advisory.
+              {/* Subtext: Concise & High Contrast */}
+              <p className="text-lg text-stone-400 max-w-xl leading-relaxed font-light border-l border-stone-800 pl-6">
+                Bridging the gap between institutional dry powder and Indian mid-market special situations. 
+                We do not find deals; we engineer them.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              {/* Buttons: Text Links & Outlines (No "SaaS" Blobs) */}
+              <div className="flex flex-wrap items-center gap-8 mt-4">
                 <button 
                   onClick={() => onNavigate('SERVICES')}
-                  className="group relative px-8 py-4 bg-amber-600 hover:bg-amber-500 text-white font-medium text-sm tracking-widest uppercase transition-all duration-300 shadow-lg hover:shadow-amber-600/20 border border-transparent rounded-sm"
+                  className="group flex items-center gap-4 text-white hover:text-amber-500 transition-colors duration-300"
                 >
-                  <span className="flex items-center gap-3">
-                    Our Capabilities 
-                    <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
+                  <span className="text-sm tracking-[0.2em] uppercase border-b border-stone-700 pb-1 group-hover:border-amber-500 transition-all">
+                    Explore Capabilities
                   </span>
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                 </button>
-                
+
                 <button 
                   onClick={() => onNavigate('TRANSACTIONS')}
-                  className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-slate-200 hover:bg-white/10 hover:border-white/30 font-medium text-sm tracking-widest uppercase transition-all duration-300 rounded-sm"
+                  className="px-6 py-3 border border-stone-800 hover:border-stone-600 text-stone-300 text-xs tracking-widest uppercase transition-all"
                 >
-                  <span className="flex items-center gap-3">
-                    View Track Record
-                    <ChevronRight size={16} className="text-slate-400 group-hover:text-white transition-colors" />
-                  </span>
+                  View Track Record
                 </button>
               </div>
             </FadeIn>
           </div>
-        </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce opacity-50 hidden lg:block z-20">
-          <ChevronDown className="text-slate-400" size={24} />
-        </div>
-      </div>
+          {/* RIGHT: INTERACTIVE "TERMINAL" CARD (Replacing the Grid) */}
+          <div className="lg:col-span-5 hidden lg:block">
+             <FadeIn delay={200}>
+              <div className="relative">
+                {/* Decorative border lines */}
+                <div className="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-stone-700" />
+                <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-stone-700" />
 
-      {/* =========================================
-          PART 2: STATS BAR (The Bridge)
-      ========================================= */}
-      <div className="relative z-20 border-t border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-           <FadeIn delay={300}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-800">
-              
-              {/* Stat 1 */}
-              <div className="py-8 md:px-6 md:first:pl-0 flex items-center gap-4">
-                <Landmark className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
-                <div>
-                  <div className="text-2xl font-serif text-white"><CountUp end={10} prefix="₹" suffix="B+" /></div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Transactions</p>
-                </div>
-              </div>
-
-              {/* Stat 2 */}
-              <div className="py-8 md:px-6 flex items-center gap-4">
-                <ShieldCheck className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
-                <div>
-                  <div className="text-2xl font-serif text-white"><CountUp end={40} suffix="+" /></div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Years Experience</p>
-                </div>
-              </div>
-
-              {/* Stat 3 */}
-              <div className="py-8 md:px-6 flex items-center gap-4">
-                <Handshake className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
-                <div>
-                  <div className="text-2xl font-serif text-white"><CountUp end={25} suffix="+" /></div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Key Partners</p>
-                </div>
-              </div>
-
-              {/* Stat 4 */}
-              <div className="py-8 md:px-6 flex items-center gap-4">
-                <Globe className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
-                <div>
-                  <div className="text-xl font-serif text-white pt-1">Pan-Asia</div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Network Reach</p>
-                </div>
-              </div>
-
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-
-      {/* =========================================
-          PART 3: EXTENDED HERO CONTENT (The New Data)
-      ========================================= */}
-      <div className="relative z-10 bg-slate-950 py-24 border-b border-slate-900">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          
-          {/* SECTION A: METHODOLOGY */}
-          <div className="mb-24">
-             <FadeIn>
-              <div className="flex items-end justify-between mb-12">
-                <h2 className="text-3xl font-serif text-white">Our Methodology</h2>
-                <div className="hidden sm:block h-[1px] flex-1 bg-slate-800 mx-6 mb-2"></div>
-                <p className="text-slate-500 text-sm uppercase tracking-widest hidden sm:block">End-to-end Execution</p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                {METHODOLOGY_STEPS.map((step, idx) => (
-                  <div key={idx} className="relative group p-6 rounded border border-slate-800 bg-slate-900/30 hover:bg-slate-800/50 hover:border-amber-500/30 transition-all duration-300">
-                    <div className="mb-4 text-amber-500 opacity-80 group-hover:opacity-100 transition-opacity">
-                      <step.icon size={24} strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-sm font-semibold text-slate-200 mb-2">{step.title}</h3>
-                    <p className="text-xs text-slate-400 leading-relaxed">{step.description}</p>
-                    
-                    {/* Visual Connector Line (hidden on last item and mobile) */}
-                    {idx !== METHODOLOGY_STEPS.length - 1 && (
-                      <div className="hidden lg:block absolute top-1/2 -right-3 w-6 border-t border-dashed border-slate-700 z-10"></div>
-                    )}
+                {/* The "Methodology" List - Editorial Style */}
+                <div className="bg-[#0f0f0f] border border-stone-800/50 p-8 shadow-2xl backdrop-blur-sm">
+                  <h3 className="font-mono text-xs text-amber-600 mb-8 uppercase tracking-widest">
+                    // Execution Framework
+                  </h3>
+                  
+                  <div className="space-y-6">
+                    {METHODOLOGY_LIST.map((step, idx) => (
+                      <div 
+                        key={idx} 
+                        className={`group cursor-pointer transition-all duration-500 ${activeStep === idx ? 'opacity-100 translate-x-2' : 'opacity-40 hover:opacity-70'}`}
+                        onMouseEnter={() => setActiveStep(idx)}
+                      >
+                        <div className="flex items-baseline gap-4">
+                          <span className="font-mono text-xs text-amber-600/80">.{step.id}</span>
+                          <h4 className="font-serif text-xl text-stone-200">{step.title}</h4>
+                        </div>
+                        <div className={`overflow-hidden transition-all duration-500 ${activeStep === idx ? 'max-h-20 mt-2' : 'max-h-0'}`}>
+                          <p className="font-mono text-[10px] text-stone-400 pl-8 border-l border-stone-800 ml-1 leading-relaxed">
+                            {step.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+
+                  {/* Dynamic Deal Highlight (Mini Tombstone) */}
+                  <div className="mt-12 pt-6 border-t border-dashed border-stone-800">
+                    <div className="flex justify-between items-end">
+                      <div>
+                        <p className="font-mono text-[10px] text-stone-500 mb-1">FEATURED TRANSACTION</p>
+                        <p className="text-white font-medium">Evonith Steel</p>
+                        <p className="text-xs text-stone-400">Term Loan Syndication</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-serif text-2xl text-amber-600">₹150 Cr</p>
+                        <p className="font-mono text-[10px] text-stone-500">CLOSED Q4 2025</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </FadeIn>
           </div>
+        </div>
+      </div>
 
-          {/* SECTION B: SPLIT LAYOUT (SECTORS & INSIGHTS) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-            
-            {/* SECTORS (Left Side - 7 Cols) */}
-            <div className="lg:col-span-7">
-              <FadeIn delay={100}>
-                <h3 className="text-xl font-serif text-white mb-8 flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-amber-500"></span> 
-                  Sector Expertise
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {SECTORS.map((sector, idx) => (
-                    <div key={idx} className="flex items-start gap-4 p-4 border border-slate-800/50 rounded hover:bg-slate-900 transition-colors">
-                      <div className="p-2 bg-slate-900 rounded border border-slate-700 text-slate-300">
-                        <sector.icon size={18} />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-medium text-sm">{sector.title}</h4>
-                        <p className="text-slate-500 text-xs mt-1">{sector.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </FadeIn>
-            </div>
-
-            {/* INSIGHTS (Right Side - 5 Cols) */}
-            <div className="lg:col-span-5">
-              <FadeIn delay={200}>
-                <h3 className="text-xl font-serif text-white mb-8 flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-amber-500"></span> 
-                  Market Intelligence
-                </h3>
-                <div className="space-y-6">
-                  {INSIGHT_POSTS.map((post, idx) => (
-                    <div key={idx} className="group cursor-pointer">
-                      <div className="flex items-center gap-3 text-[10px] uppercase tracking-wider font-medium mb-1">
-                        <span className="text-amber-500">{post.category}</span>
-                        <span className="text-slate-600">•</span>
-                        <span className="text-slate-500">{post.date}</span>
-                      </div>
-                      <h4 className="text-slate-300 group-hover:text-white transition-colors text-sm font-medium leading-snug">
-                        {post.title}
-                      </h4>
-                    </div>
-                  ))}
-                </div>
-                <button className="mt-8 text-xs text-amber-500 hover:text-amber-400 flex items-center gap-2 uppercase tracking-widest font-medium transition-colors">
-                  Read all insights <ArrowRight size={12} />
-                </button>
-              </FadeIn>
-            </div>
-
+      {/* --- FOOTER: INFINITE TICKER (Bloomberg Style) --- */}
+      <div className="absolute bottom-0 left-0 w-full bg-[#0F0F0F] border-t border-stone-800 overflow-hidden py-3 z-20">
+        <div className="relative flex overflow-x-hidden group">
+          <div className="animate-marquee whitespace-nowrap flex items-center gap-12">
+            {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-4 text-xs font-mono tracking-wider text-stone-400">
+                <span>{item}</span>
+                <Plus className="w-3 h-3 text-amber-700 opacity-50" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
