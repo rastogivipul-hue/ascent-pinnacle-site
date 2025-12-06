@@ -241,45 +241,116 @@ const AppContent = () => {
           {/* --- PRIVACY POLICY PAGE --- */}
           <Route path="/privacy" element={
             <div className="pt-32 pb-20 px-6 bg-white min-h-screen">
-               <div className="max-w-3xl mx-auto">
-                 <div className="flex items-center gap-3 mb-6">
+                <div className="max-w-4xl mx-auto">
+                  <div className="flex items-center gap-3 mb-8">
                     <ShieldAlert className="text-amber-600" size={32} />
                     <h1 className="text-4xl font-serif text-slate-900">Privacy Policy</h1>
-                 </div>
-                 <div className="prose prose-slate prose-lg text-slate-600">
-                    <p>Last Updated: December 2025</p>
-                    <p>At Ascent Pinnacle Capital, we prioritize the confidentiality and security of our clients' data. This policy outlines how we handle information collected through our advisory services.</p>
-                    <h3>1. Information Collection</h3>
-                    <p>We collect information necessary for deal origination, due diligence, and KYC compliance. This includes corporate financial data, promoter details, and transaction specifics.</p>
-                    <h3>2. Use of Information</h3>
-                    <p>Data is strictly used for structuring transactions, engaging with potential lenders/investors, and regulatory compliance. We do not sell data to third parties.</p>
-                    <h3>3. Confidentiality</h3>
-                    <p>All sensitive mandates are protected under strict Non-Disclosure Agreements (NDAs). Access is restricted to core deal teams on a need-to-know basis.</p>
-                 </div>
-               </div>
+                  </div>
+                  <div className="prose prose-slate prose-lg text-slate-600">
+                    <p className="text-sm text-slate-400 uppercase tracking-widest mb-6">Last Updated: December 2025</p>
+                    
+                    <p className="lead text-xl text-slate-800 font-medium">
+                      At Ascent Pinnacle Capital, confidentiality is the cornerstone of our practice. This policy outlines how we handle the sensitive corporate and financial data collected during our advisory mandates.
+                    </p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">1. Information Collection</h3>
+                    <p>
+                      To execute mandates such as debt syndication or distressed resolution, we collect proprietary information including but not limited to:
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li>Corporate financial statements and projections.</li>
+                      <li>Details of existing debt obligations and banking relationships.</li>
+                      <li>Promoter KYC documents and personal guarantees.</li>
+                      <li>Operational data regarding distressed or stressed assets.</li>
+                    </ul>
+
+                    <h3 className="text-slate-900 font-serif mt-8">2. Strategic Usage & Disclosure</h3>
+                    <p>
+                      Unlike consumer firms, we do not sell data for marketing. However, <strong>data sharing is intrinsic to our service</strong>. Information is disclosed on a strict need-to-know basis to:
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li><strong>Institutional Lenders & Funds:</strong> Banks, NBFCs, and Private Credit Funds for the purpose of credit evaluation.</li>
+                      <li><strong>Regulatory Bodies:</strong> As required by RBI, SEBI, or IBC regulations.</li>
+                      <li><strong>Third-Party Professionals:</strong> Valuers, legal counsels, and forensic auditors involved in the transaction structure.</li>
+                    </ul>
+
+                    <h3 className="text-slate-900 font-serif mt-8">3. Data Security & Retention</h3>
+                    <p>
+                      We employ industry-standard encryption and access controls to protect your data. Physical and digital access to deal rooms is restricted to the core transaction team. We retain financial records for a period of 7 years or as mandated by applicable laws.
+                    </p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">4. Non-Disclosure Agreements (NDAs)</h3>
+                    <p>
+                      For sensitive mandates, this general policy is superseded by the specific Non-Disclosure Agreement (NDA) signed at the onset of the engagement. In the event of a conflict, the terms of the signed NDA shall prevail.
+                    </p>
+
+                    <div className="mt-12 pt-8 border-t border-slate-200">
+                      <p className="text-sm">
+                        For privacy-related inquiries or to request data deletion (subject to regulatory retention norms), please contact our compliance officer at <span className="text-amber-600 font-medium">compliance@ascentpinnacle.com</span>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
             </div>
           } />
 
           {/* --- TERMS OF ENGAGEMENT PAGE --- */}
           <Route path="/terms" element={
             <div className="pt-32 pb-20 px-6 bg-white min-h-screen">
-               <div className="max-w-3xl mx-auto">
-                 <div className="flex items-center gap-3 mb-6">
+                <div className="max-w-4xl mx-auto">
+                  <div className="flex items-center gap-3 mb-8">
                     <FileText className="text-amber-600" size={32} />
                     <h1 className="text-4xl font-serif text-slate-900">Terms of Engagement</h1>
-                 </div>
-                 <div className="prose prose-slate prose-lg text-slate-600">
-                    <p>These terms govern the advisory relationship between Ascent Pinnacle Capital ("The Advisor") and the Client.</p>
-                    <h3>1. Scope of Services</h3>
-                    <p>The Advisor agrees to provide services including but not limited to debt syndication, restructuring advisory, and M&A support as defined in the specific mandate letter.</p>
-                    <h3>2. Exclusivity</h3>
-                    <p>Unless otherwise agreed, mandates are accepted on an exclusive basis for a defined period to ensure market discipline and focused execution.</p>
-                    <h3>3. Fees & Milestones</h3>
-                    <p>Success fees and retainers are structured based on deal milestones. Payment terms are detailed in the specific Engagement Letter signed by both parties.</p>
-                    <h3>4. Limitation of Liability</h3>
-                    <p>While we strive for successful outcomes, Ascent Pinnacle Capital acts as an advisor and does not guarantee funding or specific deal closures, which are subject to market conditions and lender discretion.</p>
-                 </div>
-               </div>
+                  </div>
+                  <div className="prose prose-slate prose-lg text-slate-600">
+                    <p className="text-sm text-slate-400 uppercase tracking-widest mb-6">Effective Date: December 6, 2025</p>
+                    
+                    <p className="lead text-xl text-slate-800 font-medium">
+                      These Terms of Engagement govern the advisory relationship between Ascent Pinnacle Capital ("The Advisor") and the Client. By engaging our services, the Client agrees to the following stipulations.
+                    </p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">1. Nature of Advisory Services</h3>
+                    <p>
+                      Ascent Pinnacle Capital agrees to provide financial advisory services including, but not limited to, debt syndication, stressed asset resolution, restructuring advisory, and M&A support. 
+                      <strong> The Advisor acts solely in an advisory capacity</strong> and not as a fiduciary, lender, or investor unless explicitly stated in a separate agreement.
+                    </p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">2. Mandate & Exclusivity</h3>
+                    <p>
+                      To ensure market discipline and focused execution, mandates are accepted on an <strong>exclusive basis</strong> for a defined period. During this period, the Client agrees not to engage other financial advisors for the same purpose without prior written consent.
+                    </p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">3. Fees & Performance Milestones</h3>
+                    <p>
+                      Our fee structure is designed to align interests with the Client:
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li><strong>Retainer Fees:</strong> Applicable upon signing to cover initial due diligence and structuring costs.</li>
+                      <li><strong>Success Fees:</strong> Payable strictly upon the successful financial closure or sanction of the facility.</li>
+                    </ul>
+                    <p>Specific payment terms and milestone definitions are detailed in the customized Engagement Letter signed by both parties.</p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">4. No Guarantee of Funding (Best Efforts Basis)</h3>
+                    <p>
+                      While Ascent Pinnacle Capital strives for successful outcomes, the Client acknowledges that the Advisor generally operates on a "best efforts" basis. We do not guarantee specific funding outcomes, interest rates, or deal closures, as these are subject to prevailing market conditions, regulatory changes, and independent lender discretion.
+                    </p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">5. Client Representations & Warranties</h3>
+                    <p>
+                      The Client warrants that all information, financial statements, and data provided to the Advisor for the purpose of the Information Memorandum (IM) are accurate, complete, and not misleading. The Advisor relies on this information without independent verification.
+                    </p>
+
+                    <h3 className="text-slate-900 font-serif mt-8">6. Limitation of Liability</h3>
+                    <p>
+                      Ascent Pinnacle Capital shall not be liable for any indirect, consequential, or punitive damages arising from the failure of a transaction to close. Our total liability is strictly limited to the professional fees actually received by the Advisor for the specific mandate.
+                    </p>
+
+                    <div className="mt-12 p-6 bg-slate-50 border-l-4 border-amber-500">
+                      <p className="text-sm font-bold text-slate-900 mb-2">JURISDICTION</p>
+                      <p className="text-sm">These terms are governed by the laws of India. Any disputes arising out of this engagement shall be subject to the exclusive jurisdiction of the courts in New Delhi.</p>
+                    </div>
+                  </div>
+                </div>
             </div>
           } />
 
