@@ -1,3 +1,4 @@
+// src/App.tsx
 import React, { useState, useEffect } from 'react';
 import { 
   BrowserRouter as Router, 
@@ -23,7 +24,7 @@ import AboutPage from './AboutPage';
 import ServicesPage from './Services';
 import TransactionsPage from './Transactions';
 import InsightsPage from './InsightsPage';
-import InsightDetail from './InsightDetail'; // The new detail component
+import BlogPost from './BlogPost'; // <--- UPDATED: Imports the new Markdown blog post component
 
 // --- SCROLL HELPER ---
 // Scrolls window to top whenever the path changes
@@ -36,7 +37,6 @@ const ScrollToTop = () => {
 };
 
 // --- MAIN LAYOUT CONTENT ---
-// We split this into a sub-component so we can use hooks like useLocation()
 const AppContent = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -60,7 +60,6 @@ const AppContent = () => {
 
   // Adapter for components that still use the old onNavigate prop
   const handleNavigate = (path: string) => {
-    // Map old IDs to new Routes
     const routeMap: Record<string, string> = {
       'HOME': '/',
       'SERVICES': '/expertise',
@@ -178,9 +177,9 @@ const AppContent = () => {
           <Route path="/expertise" element={<ServicesPage onNavigate={handleNavigate} />} />
           <Route path="/track-record" element={<TransactionsPage />} />
           
-          {/* Insights Routes */}
+          {/* --- UPDATED INSIGHTS SECTION --- */}
           <Route path="/insights" element={<InsightsPage />} />
-          <Route path="/insights/:id" element={<InsightDetail />} />
+          <Route path="/insights/:id" element={<BlogPost />} />
 
           {/* Contact Page (Inline) */}
           <Route path="/contact" element={
