@@ -295,7 +295,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </h3>
                 <div className="space-y-6">
                   {INSIGHT_POSTS.map((post, idx) => (
-                    <div key={idx} className="group cursor-pointer">
+                    <div 
+                      key={idx} 
+                      onClick={() => onNavigate('INSIGHTS')} 
+                      className="group cursor-pointer"
+                    >
                       <div className="flex items-center gap-3 text-[10px] uppercase tracking-wider font-medium mb-1">
                         <span className="text-amber-500">{post.category}</span>
                         <span className="text-slate-600">•</span>
@@ -307,7 +311,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                     </div>
                   ))}
                 </div>
-                <button className="mt-8 text-xs text-amber-500 hover:text-amber-400 flex items-center gap-2 uppercase tracking-widest font-medium transition-colors">
+                <button 
+                  onClick={() => onNavigate('INSIGHTS')}
+                  className="mt-8 text-xs text-amber-500 hover:text-amber-400 flex items-center gap-2 uppercase tracking-widest font-medium transition-colors"
+                >
                   Read all insights <ArrowRight size={12} />
                 </button>
               </FadeIn>
