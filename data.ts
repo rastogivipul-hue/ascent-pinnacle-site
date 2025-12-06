@@ -1,5 +1,5 @@
 // src/data.ts
-import { TrendingUp, Scale, Building, FileText, BookOpen } from 'lucide-react';
+import { TrendingUp, Scale, Building, FileText } from 'lucide-react';
 
 export interface Insight {
   id: number;
@@ -25,7 +25,6 @@ export const INSIGHTS: Insight[] = [
 # The Shift from Banking to Private Credit: Opportunities for Indian Promoters
 
 ## Introduction
-
 India’s mid-market promoters are being squeezed. As banks tighten lending norms under RBI’s increasingly conservative stance, a ₹50,000 crore liquidity gap has opened up — particularly for companies seeking capital for expansion, refinancing, or special-situation needs.
 
 Private credit funds, domestic and global, are stepping in aggressively. What was once a niche asset class is now the fastest-growing capital source for sub-₹1,000 crore enterprises.
@@ -35,7 +34,6 @@ This article breaks down **why private credit is replacing banks**, and **how pr
 ---
 
 ## 1. Why Banks Have Pulled Back
-
 Banks aren’t suddenly risk-averse; they’re bound by structural constraints:
 
 ### 1.1 Stricter Regulatory Oversight
@@ -58,7 +56,6 @@ A refinancing or bridge-funding requirement that needs a 3–6 week turnaround j
 ---
 
 ## 2. How Private Credit Is Filling the ₹50,000 Cr Gap
-
 Private credit funds are not bound by the same constraints as banks. Their mandate is simple: **deploy capital fast at risk-adjusted pricing**.
 
 ### 2.1 Faster Sanction & Structuring
@@ -134,7 +131,6 @@ Every business has weaknesses. Hiding them only kills credibility.
 ---
 
 ## 5. Sectors Where Private Credit Will Dominate (2025–2028)
-
 * **Real Estate (NCR / MMR / Bengaluru):** Last-mile financing + land aggregation deals.
 * **Healthcare & Diagnostics:** Brownfield hospital expansion and equipment leasing.
 * **Manufacturing (Auto ancillaries, Engineering, Chemicals):** Working capital and CAPEX-heavy expansion.
@@ -144,7 +140,6 @@ Every business has weaknesses. Hiding them only kills credibility.
 ---
 
 ## 6. Risks Promoters Must Understand
-
 Private credit is not free money. Key risks include:
 * Higher coupon vs. banks
 * Event-trigger covenants
@@ -157,7 +152,6 @@ Funds expect performance. If you under-deliver, they take control.
 ---
 
 ## Conclusion
-
 Private credit is no longer a temporary patch — it is becoming the new backbone of mid-market financing in India. For promoters, this shift presents a window to raise strategic, flexible capital without surrendering ownership.
 
 Those who prepare early — with clean numbers, clear intent, and transparent governance — will secure the best terms and long-term partners.
