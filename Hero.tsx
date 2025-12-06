@@ -28,15 +28,15 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
              style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
         </div>
         
-        {/* 2. The Animated Blobs */}
-        {/* Blob A: Deep Indigo (Base) */}
-        <div className="absolute top-0 left-[-10%] w-[70vw] h-[70vw] bg-indigo-950/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob" />
+        {/* 2. The Animated Blobs (Brightened for Visibility) */}
+        {/* Blob A: Purple/Indigo Glow */}
+        <div className="absolute top-0 left-[-10%] w-[70vw] h-[70vw] bg-indigo-500/30 rounded-full mix-blend-screen filter blur-[100px] animate-blob" />
         
-        {/* Blob B: Amber Gold (Highlight) */}
-        <div className="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-amber-900/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000" />
+        {/* Blob B: Amber/Gold Glow (Delayed) */}
+        <div className="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-amber-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000" />
         
-        {/* Blob C: Slate/Grey (Depth) */}
-        <div className="absolute -bottom-32 left-[20%] w-[60vw] h-[60vw] bg-stone-900/40 rounded-full mix-blend-overlay filter blur-[100px] animate-blob animation-delay-4000" />
+        {/* Blob C: Blue/Cyan Glow (Delayed more) */}
+        <div className="absolute -bottom-32 left-[20%] w-[60vw] h-[60vw] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000" />
       </div>
 
       {/* --- MAIN CONTENT CONTAINER --- */}
@@ -89,10 +89,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* --- FOOTER: INFINITE TICKER --- */}
+     {/* --- FOOTER: INFINITE TICKER (Bloomberg Style) --- */}
       <div className="absolute bottom-0 left-0 w-full bg-[#0F0F0F] border-t border-stone-800 overflow-hidden py-4 z-20">
         <div className="relative flex overflow-x-hidden group">
           <div className="animate-marquee whitespace-nowrap flex items-center gap-16">
+            {/* Duplicated items 3 times to ensure smooth infinite loop */}
             {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, idx) => (
               <div key={idx} className="flex items-center gap-4 text-xs font-mono tracking-wider text-stone-400">
                 <span>{item}</span>
