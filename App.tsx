@@ -15,7 +15,9 @@ import {
   Mail, 
   Clock, 
   MapPin, 
-  Linkedin 
+  Linkedin,
+  ShieldAlert,
+  FileText
 } from 'lucide-react';
 
 // --- COMPONENT IMPORTS ---
@@ -169,6 +171,7 @@ const AppContent = () => {
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/:id" element={<BlogPost />} />
 
+          {/* Contact Page */}
           <Route path="/contact" element={
             <div className="pt-32 pb-20 px-6 bg-white min-h-[80vh]">
               <div className="max-w-4xl mx-auto">
@@ -234,6 +237,52 @@ const AppContent = () => {
               </div>
             </div>
           } />
+
+          {/* --- PRIVACY POLICY PAGE --- */}
+          <Route path="/privacy" element={
+            <div className="pt-32 pb-20 px-6 bg-white min-h-screen">
+               <div className="max-w-3xl mx-auto">
+                 <div className="flex items-center gap-3 mb-6">
+                    <ShieldAlert className="text-amber-600" size={32} />
+                    <h1 className="text-4xl font-serif text-slate-900">Privacy Policy</h1>
+                 </div>
+                 <div className="prose prose-slate prose-lg text-slate-600">
+                    <p>Last Updated: December 2025</p>
+                    <p>At Ascent Pinnacle Capital, we prioritize the confidentiality and security of our clients' data. This policy outlines how we handle information collected through our advisory services.</p>
+                    <h3>1. Information Collection</h3>
+                    <p>We collect information necessary for deal origination, due diligence, and KYC compliance. This includes corporate financial data, promoter details, and transaction specifics.</p>
+                    <h3>2. Use of Information</h3>
+                    <p>Data is strictly used for structuring transactions, engaging with potential lenders/investors, and regulatory compliance. We do not sell data to third parties.</p>
+                    <h3>3. Confidentiality</h3>
+                    <p>All sensitive mandates are protected under strict Non-Disclosure Agreements (NDAs). Access is restricted to core deal teams on a need-to-know basis.</p>
+                 </div>
+               </div>
+            </div>
+          } />
+
+          {/* --- TERMS OF ENGAGEMENT PAGE --- */}
+          <Route path="/terms" element={
+            <div className="pt-32 pb-20 px-6 bg-white min-h-screen">
+               <div className="max-w-3xl mx-auto">
+                 <div className="flex items-center gap-3 mb-6">
+                    <FileText className="text-amber-600" size={32} />
+                    <h1 className="text-4xl font-serif text-slate-900">Terms of Engagement</h1>
+                 </div>
+                 <div className="prose prose-slate prose-lg text-slate-600">
+                    <p>These terms govern the advisory relationship between Ascent Pinnacle Capital ("The Advisor") and the Client.</p>
+                    <h3>1. Scope of Services</h3>
+                    <p>The Advisor agrees to provide services including but not limited to debt syndication, restructuring advisory, and M&A support as defined in the specific mandate letter.</p>
+                    <h3>2. Exclusivity</h3>
+                    <p>Unless otherwise agreed, mandates are accepted on an exclusive basis for a defined period to ensure market discipline and focused execution.</p>
+                    <h3>3. Fees & Milestones</h3>
+                    <p>Success fees and retainers are structured based on deal milestones. Payment terms are detailed in the specific Engagement Letter signed by both parties.</p>
+                    <h3>4. Limitation of Liability</h3>
+                    <p>While we strive for successful outcomes, Ascent Pinnacle Capital acts as an advisor and does not guarantee funding or specific deal closures, which are subject to market conditions and lender discretion.</p>
+                 </div>
+               </div>
+            </div>
+          } />
+
         </Routes>
       </main>
 
@@ -248,7 +297,6 @@ const AppContent = () => {
               An integrated investment banking platform bridging the gap between institutional capital and mid-market opportunities in India.
             </p>
             <div className="flex gap-4">
-              {/* UPDATED LINKEDIN LINK */}
               <a 
                 href="https://www.linkedin.com/company/ascent-pinnacle-capital-limited/?viewAsMember=true" 
                 target="_blank" 
@@ -287,8 +335,8 @@ const AppContent = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
           <p>© {new Date().getFullYear()} Ascent Pinnacle Capital Advisors. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <span>Privacy Policy</span>
-            <span>Terms of Engagement</span>
+            <Link to="/privacy" className="hover:text-amber-500 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-amber-500 transition-colors">Terms of Engagement</Link>
           </div>
         </div>
       </footer>
