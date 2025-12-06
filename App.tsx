@@ -1,36 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { 
+  BrowserRouter as Router, 
+  Routes, 
+  Route, 
+  Link, 
+  useLocation, 
+  useNavigate 
+} from 'react-router-dom';
+import { 
   Menu, 
   X, 
   Phone, 
   Mail, 
   Clock, 
   MapPin, 
-  ArrowRight, 
   Linkedin 
 } from 'lucide-react';
 
 // --- COMPONENT IMPORTS ---
-// Ensure these file names match exactly what is in your folder
 import Hero from './Hero';
 import AboutPage from './AboutPage';
-import ServicesPage from './Services';         // Exported as default from Services.tsx
-import TransactionsPage from './Transactions'; // Exported as default from TransactionsPage.tsx
-import InsightsPage from './InsightsPage';     // Exported as default from InsightsPage.tsx
+import ServicesPage from './Services';
+import TransactionsPage from './Transactions';
+import InsightsPage from './InsightsPage';
+import InsightDetail from './InsightDetail'; // The new detail component
 
-// --- TYPES ---
-export type PageType = 'HOME' | 'ABOUT' | 'SERVICES' | 'TRANSACTIONS' | 'INSIGHTS' | 'CONTACT';
-
-function App() {
-  const [currentPage, setCurrentPage] = useState<PageType>('HOME');
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Scroll to top when page changes
+// --- SCROLL HELPER ---
+// Scrolls window to top whenever the path changes
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-    setIsMobileMenuOpen(false); // Close mobile menu on navigate
-  }, [currentPage]);
+  }, [pathname]);
+  return null;
+};
+
+// --- MAIN LAYOUT CONTENT ---
+// We split this into a sub-component so we can use hooks like useLocation()
+const AppContent = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Handle Navbar Scroll Effect
   useEffect(() => {
@@ -41,121 +53,45 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navigation Helper
-  const handleNavigate = (page: string) => {
-    setCurrentPage(page as PageType);
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
+  // Adapter for components that still use the old onNavigate prop
+  const handleNavigate = (path: string) => {
+    // Map old IDs to new Routes
+    const routeMap: Record<string, string> = {
+      'HOME': '/',
+      'SERVICES': '/expertise',
+      'TRANSACTIONS': '/track-record',
+      'INSIGHTS': '/insights',
+      'ABOUT': '/team',
+      'CONTACT': '/contact'
+    };
+    navigate(routeMap[path] || '/');
   };
 
-  // --- RENDER CURRENT PAGE ---
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'HOME':
-        return <Hero onNavigate={handleNavigate} />;
-      
-      case 'ABOUT':
-        return <AboutPage />;
-      
-      case 'SERVICES':
-        return <ServicesPage onNavigate={handleNavigate} />;
-      
-      case 'TRANSACTIONS':
-        return <TransactionsPage />;
-      
-      case 'INSIGHTS':
-        return <InsightsPage />;
+  // Helper to check active state
+  const isActive = (path: string) => location.pathname === path;
 
-      case 'CONTACT':
-        return (
-          <div className="pt-32 pb-20 px-6 bg-white min-h-[80vh]">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex flex-col items-center mb-12">
-                <span className="text-amber-600 font-bold tracking-widest text-xs uppercase mb-3">Get in Touch</span>
-                <h2 className="text-4xl md:text-5xl font-serif text-slate-900 text-center">Contact Us</h2>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                {/* Office Info */}
-                <div className="bg-slate-50 p-8 rounded-sm border border-slate-200 hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-xl font-serif text-slate-900 mb-6 border-b border-slate-200 pb-4">Corporate Office</h3>
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4 group">
-                      <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                        <MapPin size={20} />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-slate-900">New Delhi, India</p>
-                        <p className="text-slate-500 text-sm mt-1">
-                          Barakhamba Road, Connaught Place<br />
-                          New Delhi - 110001
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-4 group">
-                      <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                        <Phone size={20} />
-                      </div>
-                      <p className="text-slate-600 group-hover:text-slate-900 transition-colors">+91 11 1234 5678</p>
-                    </div>
-
-                    <div className="flex items-center gap-4 group">
-                      <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                        <Mail size={20} />
-                      </div>
-                      <a href="mailto:info@ascentpinnacle.com" className="text-slate-600 hover:text-amber-600 transition-colors">
-                        info@ascentpinnacle.com
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hours & Notes */}
-                <div className="bg-slate-900 p-8 rounded-sm text-white flex flex-col justify-between relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl"></div>
-                  
-                  <div>
-                    <h3 className="text-xl font-serif mb-6 border-b border-slate-700 pb-4">Working Hours</h3>
-                    <div className="flex items-start gap-4 mb-8">
-                      <Clock className="text-amber-500 mt-1" />
-                      <div>
-                        <p className="font-semibold text-lg">Monday - Friday</p>
-                        <p className="text-slate-400">9:30 AM - 6:30 PM</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-slate-800/50 p-4 rounded border border-slate-700">
-                    <p className="text-slate-300 text-sm leading-relaxed">
-                      For strictly confidential mandates or distressed asset proposals, please mark your subject line as <span className="text-amber-500 font-medium">"Confidential / IM"</span>.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-
-      default:
-        return <Hero onNavigate={handleNavigate} />;
-    }
-  };
-
-  // --- NAVBAR LINKS CONFIG ---
+  // Navigation Config
   const navLinks = [
-    { id: 'HOME', label: 'Home' },
-    { id: 'SERVICES', label: 'Expertise' },
-    { id: 'TRANSACTIONS', label: 'Track Record' },
-    { id: 'INSIGHTS', label: 'Insights' },
-    { id: 'ABOUT', label: 'Team' },
+    { path: '/', label: 'Home' },
+    { path: '/expertise', label: 'Expertise' },
+    { path: '/track-record', label: 'Track Record' },
+    { path: '/insights', label: 'Insights' },
+    { path: '/team', label: 'Team' },
   ];
 
   return (
     <div className="font-sans antialiased text-slate-900 bg-slate-50 min-h-screen flex flex-col">
-      
+      <ScrollToTop />
+
       {/* ================= NAVBAR ================= */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || currentPage !== 'HOME'
+          isScrolled || location.pathname !== '/'
             ? 'bg-slate-950/95 backdrop-blur-md py-4 shadow-xl border-b border-white/10' 
             : 'bg-transparent py-6'
         }`}
@@ -163,45 +99,42 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
           
           {/* Logo */}
-          <div 
-            onClick={() => handleNavigate('HOME')}
-            className="cursor-pointer z-50 group"
-          >
+          <Link to="/" className="cursor-pointer z-50 group">
             <div className="text-2xl font-serif text-white tracking-tight">
               Ascent<span className="text-amber-500">Pinnacle</span>
             </div>
             <div className="text-[9px] text-slate-400 uppercase tracking-[0.3em] group-hover:text-amber-500 transition-colors">
               Capital Advisors
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavigate(link.id)}
+              <Link
+                key={link.path}
+                to={link.path}
                 className={`text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:text-amber-500 relative group ${
-                  currentPage === link.id ? 'text-amber-500' : 'text-slate-300'
+                  isActive(link.path) ? 'text-amber-500' : 'text-slate-300'
                 }`}
               >
                 {link.label}
                 <span className={`absolute -bottom-2 left-0 w-full h-[1px] bg-amber-500 transform origin-left transition-transform duration-300 ${
-                  currentPage === link.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  isActive(link.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                 }`}></span>
-              </button>
+              </Link>
             ))}
 
-            <button 
-              onClick={() => handleNavigate('CONTACT')}
+            <Link 
+              to="/contact"
               className={`px-6 py-2 text-xs font-bold uppercase tracking-widest rounded-sm transition-all border ${
-                currentPage === 'CONTACT' 
+                isActive('/contact') 
                   ? 'bg-amber-600 border-amber-600 text-white' 
                   : 'bg-transparent border-amber-600 text-amber-500 hover:bg-amber-600 hover:text-white'
               }`}
             >
               Contact
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -218,35 +151,111 @@ function App() {
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => handleNavigate(link.id)}
+            <Link
+              key={link.path}
+              to={link.path}
               className={`text-2xl font-serif transition-colors ${
-                currentPage === link.id ? 'text-amber-500' : 'text-white'
+                isActive(link.path) ? 'text-amber-500' : 'text-white'
               }`}
             >
               {link.label}
-            </button>
+            </Link>
           ))}
-          <button 
-            onClick={() => handleNavigate('CONTACT')}
+          <Link 
+            to="/contact"
             className="text-xl font-serif text-amber-500 mt-4"
           >
             Contact Us
-          </button>
+          </Link>
         </div>
       </nav>
 
-      {/* ================= MAIN CONTENT ================= */}
+      {/* ================= MAIN CONTENT ROUTES ================= */}
       <main className="flex-grow">
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<Hero onNavigate={handleNavigate} />} />
+          <Route path="/team" element={<AboutPage />} />
+          <Route path="/expertise" element={<ServicesPage onNavigate={handleNavigate} />} />
+          <Route path="/track-record" element={<TransactionsPage />} />
+          
+          {/* Insights Routes */}
+          <Route path="/insights" element={<InsightsPage />} />
+          <Route path="/insights/:id" element={<InsightDetail />} />
+
+          {/* Contact Page (Inline) */}
+          <Route path="/contact" element={
+            <div className="pt-32 pb-20 px-6 bg-white min-h-[80vh]">
+              <div className="max-w-4xl mx-auto">
+                <div className="flex flex-col items-center mb-12">
+                  <span className="text-amber-600 font-bold tracking-widest text-xs uppercase mb-3">Get in Touch</span>
+                  <h2 className="text-4xl md:text-5xl font-serif text-slate-900 text-center">Contact Us</h2>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                  {/* Office Info */}
+                  <div className="bg-slate-50 p-8 rounded-sm border border-slate-200 hover:shadow-lg transition-shadow duration-300">
+                    <h3 className="text-xl font-serif text-slate-900 mb-6 border-b border-slate-200 pb-4">Corporate Office</h3>
+                    <div className="space-y-6">
+                      <div className="flex items-start gap-4 group">
+                        <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                          <MapPin size={20} />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-slate-900">New Delhi, India</p>
+                          <p className="text-slate-500 text-sm mt-1">
+                            Barakhamba Road, Connaught Place<br />
+                            New Delhi - 110001
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-4 group">
+                        <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                          <Phone size={20} />
+                        </div>
+                        <p className="text-slate-600 group-hover:text-slate-900 transition-colors">+91 11 1234 5678</p>
+                      </div>
+
+                      <div className="flex items-center gap-4 group">
+                        <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                          <Mail size={20} />
+                        </div>
+                        <a href="mailto:info@ascentpinnacle.com" className="text-slate-600 hover:text-amber-600 transition-colors">
+                          info@ascentpinnacle.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hours & Notes */}
+                  <div className="bg-slate-900 p-8 rounded-sm text-white flex flex-col justify-between relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl"></div>
+                    <div>
+                      <h3 className="text-xl font-serif mb-6 border-b border-slate-700 pb-4">Working Hours</h3>
+                      <div className="flex items-start gap-4 mb-8">
+                        <Clock className="text-amber-500 mt-1" />
+                        <div>
+                          <p className="font-semibold text-lg">Monday - Friday</p>
+                          <p className="text-slate-400">9:30 AM - 6:30 PM</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-slate-800/50 p-4 rounded border border-slate-700">
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        For strictly confidential mandates or distressed asset proposals, please mark your subject line as <span className="text-amber-500 font-medium">"Confidential / IM"</span>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          } />
+        </Routes>
       </main>
 
       {/* ================= FOOTER ================= */}
-      {/* Hide footer only on Home if you prefer a cleaner look, otherwise remove the check */}
       <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
-          
           <div className="col-span-1 md:col-span-2">
             <div className="text-2xl font-serif text-white tracking-tight mb-6">
               Ascent<span className="text-amber-500">Pinnacle</span>
@@ -267,23 +276,22 @@ function App() {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-6">Expertise</h4>
             <ul className="space-y-3 text-sm text-slate-500">
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('SERVICES')}>Structured Finance</li>
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('SERVICES')}>Debt Syndication</li>
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('SERVICES')}>Distressed Resolution</li>
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('SERVICES')}>M&A Advisory</li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/expertise">Structured Finance</Link></li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/expertise">Debt Syndication</Link></li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/expertise">Distressed Resolution</Link></li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/expertise">M&A Advisory</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-slate-500">
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('ABOUT')}>Leadership Team</li>
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('TRANSACTIONS')}>Track Record</li>
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('INSIGHTS')}>Insights</li>
-              <li className="hover:text-amber-500 cursor-pointer transition-colors" onClick={() => handleNavigate('CONTACT')}>Contact Us</li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/team">Leadership Team</Link></li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/track-record">Track Record</Link></li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/insights">Insights</Link></li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
-
         </div>
         
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
@@ -294,8 +302,16 @@ function App() {
           </div>
         </div>
       </footer>
-
     </div>
+  );
+};
+
+// --- APP WRAPPER ---
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
