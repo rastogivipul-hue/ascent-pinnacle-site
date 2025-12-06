@@ -24,10 +24,9 @@ import AboutPage from './AboutPage';
 import ServicesPage from './Services';
 import TransactionsPage from './Transactions';
 import InsightsPage from './InsightsPage';
-import BlogPost from './BlogPost'; // <--- UPDATED: Imports the new Markdown blog post component
+import BlogPost from './BlogPost';
 
 // --- SCROLL HELPER ---
-// Scrolls window to top whenever the path changes
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -44,7 +43,6 @@ const AppContent = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Handle Navbar Scroll Effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -53,12 +51,10 @@ const AppContent = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  // Adapter for components that still use the old onNavigate prop
   const handleNavigate = (path: string) => {
     const routeMap: Record<string, string> = {
       'HOME': '/',
@@ -71,10 +67,8 @@ const AppContent = () => {
     navigate(routeMap[path] || '/');
   };
 
-  // Helper to check active state
   const isActive = (path: string) => location.pathname === path;
 
-  // Navigation Config
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/expertise', label: 'Expertise' },
@@ -97,7 +91,6 @@ const AppContent = () => {
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
           
-          {/* Logo */}
           <Link to="/" className="cursor-pointer z-50 group">
             <div className="text-2xl font-serif text-white tracking-tight">
               Ascent<span className="text-amber-500">Pinnacle</span>
@@ -107,7 +100,6 @@ const AppContent = () => {
             </div>
           </Link>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -136,7 +128,6 @@ const AppContent = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button 
             className="md:hidden text-white z-50 hover:text-amber-500 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -145,7 +136,6 @@ const AppContent = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-slate-950 flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
@@ -176,12 +166,9 @@ const AppContent = () => {
           <Route path="/team" element={<AboutPage />} />
           <Route path="/expertise" element={<ServicesPage onNavigate={handleNavigate} />} />
           <Route path="/track-record" element={<TransactionsPage />} />
-          
-          {/* --- UPDATED INSIGHTS SECTION --- */}
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/:id" element={<BlogPost />} />
 
-          {/* Contact Page (Inline) */}
           <Route path="/contact" element={
             <div className="pt-32 pb-20 px-6 bg-white min-h-[80vh]">
               <div className="max-w-4xl mx-auto">
@@ -191,7 +178,6 @@ const AppContent = () => {
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                  {/* Office Info */}
                   <div className="bg-slate-50 p-8 rounded-sm border border-slate-200 hover:shadow-lg transition-shadow duration-300">
                     <h3 className="text-xl font-serif text-slate-900 mb-6 border-b border-slate-200 pb-4">Corporate Office</h3>
                     <div className="space-y-6">
@@ -226,7 +212,6 @@ const AppContent = () => {
                     </div>
                   </div>
 
-                  {/* Hours & Notes */}
                   <div className="bg-slate-900 p-8 rounded-sm text-white flex flex-col justify-between relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl"></div>
                     <div>
@@ -263,7 +248,13 @@ const AppContent = () => {
               An integrated investment banking platform bridging the gap between institutional capital and mid-market opportunities in India.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-slate-900 rounded-full border border-slate-800 hover:border-amber-500 hover:text-amber-500 transition-all">
+              {/* UPDATED LINKEDIN LINK */}
+              <a 
+                href="https://www.linkedin.com/company/ascent-pinnacle-capital-limited/?viewAsMember=true" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-slate-900 rounded-full border border-slate-800 hover:border-amber-500 hover:text-amber-500 transition-all"
+              >
                 <Linkedin size={18} />
               </a>
               <a href="mailto:info@ascentpinnacle.com" className="p-2 bg-slate-900 rounded-full border border-slate-800 hover:border-amber-500 hover:text-amber-500 transition-all">
