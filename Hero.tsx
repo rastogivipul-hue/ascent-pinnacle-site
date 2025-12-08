@@ -53,7 +53,7 @@ const METHODOLOGY_STEPS = [
 const SECTORS = [
   {
     title: "Real Estate",
-    description: "Last-mile funding & distressed resolution.",
+    description: "Acquisition finance | Approval-linked funding | Construction capital | Last-mile completion funding | Distressed and special situations.",
     icon: Building
   },
   {
@@ -63,7 +63,7 @@ const SECTORS = [
   },
   {
     title: "Financial Services",
-    description: "Capital adequacy & NCD placements.",
+    description: "Capital adequacy support | NCD placements | Funding for disbursement and growth",
     icon: Landmark
   },
   {
@@ -190,7 +190,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <Landmark className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
                   <div className="text-2xl font-serif text-white"><CountUp end={10} prefix="₹" suffix="B+" /></div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Transactions</p>
+                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Transactions</p>
                 </div>
               </div>
 
@@ -199,7 +199,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <ShieldCheck className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
                   <div className="text-2xl font-serif text-white"><CountUp end={40} suffix="+" /></div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Years Experience</p>
+                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Years Experience</p>
                 </div>
               </div>
 
@@ -208,7 +208,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <Handshake className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
                   <div className="text-2xl font-serif text-white"><CountUp end={25} suffix="+" /></div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Key Partners</p>
+                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Key Partners</p>
                 </div>
               </div>
 
@@ -217,7 +217,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <Globe className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
                   <div className="text-xl font-serif text-white pt-1">Pan-Asia</div>
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Network Reach</p>
+                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Network Reach</p>
                 </div>
               </div>
 
