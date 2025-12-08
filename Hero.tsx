@@ -58,7 +58,7 @@ const SECTORS = [
   },
   {
     title: "Heavy Industry",
-    description: "Capex financing & debt restructuring.",
+    description: "Capex financing | Working-capital solutions | Refinancing & repricing | Debt restructuring."",
     icon: Factory
   },
   {
@@ -68,7 +68,7 @@ const SECTORS = [
   },
   {
     title: "Infrastructure",
-    description: "Long-term financing & syndication.",
+    description: "Long-term project finance | Mezzanine debt | Equity-linked funding structures | Consortium & syndicated financing.",
     icon: Radio
   }
 ];
@@ -189,8 +189,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <div className="py-8 md:px-6 md:first:pl-0 flex items-center gap-4">
                 <Landmark className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
-                  <div className="text-2xl font-serif text-white"><CountUp end={10} prefix="₹" suffix="B+" /></div>
-                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Transactions</p>
+                  <div className="text-4xl font-serif text-white"><CountUp end={10} prefix="₹" suffix="B+" /></div>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Transactions</p>
                 </div>
               </div>
 
@@ -198,8 +198,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <div className="py-8 md:px-6 flex items-center gap-4">
                 <ShieldCheck className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
-                  <div className="text-2xl font-serif text-white"><CountUp end={40} suffix="+" /></div>
-                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Years Experience</p>
+                  <div className="text-4xl font-serif text-white"><CountUp end={40} suffix="+" /></div>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Years Experience</p>
                 </div>
               </div>
 
@@ -207,8 +207,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <div className="py-8 md:px-6 flex items-center gap-4">
                 <Handshake className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
-                  <div className="text-2xl font-serif text-white"><CountUp end={25} suffix="+" /></div>
-                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Key Partners</p>
+                  <div className="text-4xl font-serif text-white"><CountUp end={25} suffix="+" /></div>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Key Partners</p>
                 </div>
               </div>
 
@@ -217,7 +217,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <Globe className="text-amber-500 shrink-0" size={28} strokeWidth={1} />
                 <div>
                   <div className="text-xl font-serif text-white pt-1">Pan-Asia</div>
-                  <p className="text-[20px] uppercase tracking-widest text-slate-500">Network Reach</p>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Network Reach</p>
                 </div>
               </div>
 
