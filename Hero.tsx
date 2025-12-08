@@ -58,7 +58,7 @@ const SECTORS = [
   },
   {
     title: "Heavy Industry",
-    description: "Capex financing | Working-capital solutions | Refinancing & repricing | Debt restructuring."",
+    description: "Capex financing | Working-capital solutions | Refinancing & repricing | Debt restructuring.",
     icon: Factory
   },
   {
