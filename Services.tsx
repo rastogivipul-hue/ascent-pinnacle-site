@@ -174,17 +174,17 @@ const SECTORS = [
 const INSIGHT_POSTS = [
   {
     title: "The IBC Landscape: Navigating Insolvency 5 Years On",
-    ,
+    
     category: "Regulatory"
   },
   {
     title: "Private Credit: The New Alpha in Indian Markets",
-    ,
+    
     category: "Market Trends"
   },
   {
     title: "Structuring for Downside Protection in Volatile Cycles",
-    ,
+    
     category: "Investment Strategy"
   }
 ];
