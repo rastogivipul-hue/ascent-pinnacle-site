@@ -77,10 +77,10 @@ const CASE_STUDIES = [
     clientProfile: "A prominent educational trust operating multiple colleges in Northern India.",
     challenge: "Severe liquidity crunch. Barred from mainstream credit due to prior NPA classification and complex NGO structure.",
     strategy: "Engaged Alternate Risk Division of a private bank. Coordinated massive legal reconstruction of title chains.",
-    result: "Secured ₹15 Crore term loan at competitive rates, rehabilitating the client into the formal banking system."
+    result: "Secured ₹150 Crore term loan at competitive rates, rehabilitating the client into the formal banking system."
   },
   {
-    id: "ameya-real-estate",
+    id: "real-estate",
     category: "Structured Credit / Real Estate",
     title: "Structured Resolution for Stalled Real Estate",
     clientProfile: "Mid-sized developer with a stalled flagship residential project facing insolvency.",
@@ -150,22 +150,22 @@ const METHODOLOGY_STEPS = [
 const SECTORS = [
   {
     title: "Real Estate",
-    description: "Last-mile funding & distressed resolution.",
+    description: "Acquisition finance | Approval-linked funding | Construction capital | Last-mile completion funding | Distressed and special situations.",
     icon: Building
   },
   {
     title: "Heavy Industry",
-    description: "Capex financing & debt restructuring.",
+    description: "Capex financing | Working-capital solutions | Refinancing & repricing | Debt restructuring.",
     icon: Factory
   },
   {
     title: "Financial Services",
-    description: "Capital adequacy & NCD placements.",
+    description: "Capital adequacy support | NCD placements | Funding for disbursement and growth.",
     icon: Landmark
   },
   {
     title: "Infrastructure",
-    description: "Long-term financing & syndication.",
+    description: "Long-term project finance | Mezzanine debt | Equity-linked funding structures | Consortium & syndicated financing.",
     icon: Radio
   }
 ];
@@ -174,17 +174,17 @@ const SECTORS = [
 const INSIGHT_POSTS = [
   {
     title: "The IBC Landscape: Navigating Insolvency 5 Years On",
-    date: "October 2023",
+    ,
     category: "Regulatory"
   },
   {
     title: "Private Credit: The New Alpha in Indian Markets",
-    date: "September 2023",
+    ,
     category: "Market Trends"
   },
   {
     title: "Structuring for Downside Protection in Volatile Cycles",
-    date: "August 2023",
+    ,
     category: "Investment Strategy"
   }
 ];
