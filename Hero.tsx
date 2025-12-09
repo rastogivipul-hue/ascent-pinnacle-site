@@ -1,3 +1,4 @@
+// src/Hero.tsx
 import React from 'react';
 import { 
   ArrowRight, 
@@ -5,7 +6,7 @@ import {
   Landmark, 
   Handshake, 
   ShieldCheck, 
-  Globe,
+  Globe, 
   ChevronDown,
   // New Icons added based on your data
   Search,
@@ -25,7 +26,7 @@ import { CountUp, FadeIn } from './UI';
 const METHODOLOGY_STEPS = [
   {
     title: "Strategic Origination",
-    description: "Identifying mispriced risk and off-market mandates.”,
+    description: "Identifying mispriced risk and off-market mandates.",
     icon: Search
   },
   {
@@ -53,7 +54,7 @@ const METHODOLOGY_STEPS = [
 const SECTORS = [
   {
     title: "Real Estate",
-    description: “Land Acquisition | Approval-linked funding | Construction capital | Last-mile completion funding | Distressed and special situations.",
+    description: "Land Acquisition | Approval-linked funding | Construction capital | Last-mile completion funding | Distressed and special situations.",
     icon: Building
   },
   {
