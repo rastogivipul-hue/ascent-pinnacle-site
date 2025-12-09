@@ -11,7 +11,6 @@ import {
 import { 
   Menu, 
   X, 
-  Phone, 
   Mail, 
   Clock, 
   MapPin, 
@@ -214,6 +213,7 @@ const AppContent = () => {
                         </div>
                       </div>
 
+                      {/* EMAIL SECTION */}
                       <div className="flex items-center gap-4 group">
                         <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
                           <Mail size={20} />
