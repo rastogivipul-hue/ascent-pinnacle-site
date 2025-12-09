@@ -1,11 +1,10 @@
 // src/AboutPage.tsx
 import React from 'react';
 import { Quote, Linkedin, Mail } from 'lucide-react';
-
-/* FIX: Changed import path to match your flat folder structure */
 import { FadeIn } from './UI';
 
 // --- IMAGE IMPORTS ---
+// Ensure these files exist in the SAME folder as AboutPage.tsx
 import vkrpic from './AP VKR.jpg';
 import srjipic from './AP SRji.jpg';
 import akpic from './AP AK.jpg';
@@ -24,7 +23,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Vipul Rastogi",
-    role: "Managing Partner", // Changed from MD to Partner (more Fund-like)
+    role: "Managing Partner",
     imageUrl: vkrpic,
     linkedin: "https://www.linkedin.com/in/vipul-rastogi-ba65a762/",
     email: "vkr@ascentpinnacle.com",
@@ -35,7 +34,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Ashish Kumar",
-    role: "Director - Transaction Execution", // Stronger title
+    role: "Director - Transaction Execution",
     imageUrl: akpic,
     linkedin: "https://www.linkedin.com/in/ashish-kumar-92a93b12b/",
     email: "ashish.kumar@ascentpinnacle.com",
