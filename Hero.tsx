@@ -11,8 +11,8 @@ import {
   Search,
   FileSearch,
   Layers,
-  Rocket, // Used for Deployment
-  Target, // Used for Exit
+  Rocket,
+  Target,
   Building,
   Factory,
   Radio
@@ -20,26 +20,26 @@ import {
 
 import { CountUp, FadeIn } from './UI';
 
-// --- DATA CONSTANTS (REWRITTEN FOR MARS/SATURN AUTHORITY) ---
+// --- DATA CONSTANTS ---
 
 const METHODOLOGY_STEPS = [
   {
-    title: "Thesis Origination", // Changed from "Strategic Origination"
-    description: " identifying mispriced risk and off-market mandates.",
+    title: "Thesis Origination",
+    description: "Identifying mispriced risk and off-market mandates.",
     icon: Search
   },
   {
-    title: "Forensic Diligence", // Stronger than "Due Diligence"
+    title: "Forensic Diligence",
     description: "Stress-testing asset quality, legal title, and promoter intent.",
     icon: FileSearch
   },
   {
-    title: "Credit Structuring", // Changed from "Bespoke Structuring"
+    title: "Credit Structuring",
     description: "Engineering ring-fenced cash flows and downside protection.",
     icon: Layers
   },
   {
-    title: "Capital Deployment", 
+    title: "Capital Deployment",
     description: "Milestone-linked tranche releases to ensure utilization control.",
     icon: Rocket
   },
@@ -53,7 +53,7 @@ const METHODOLOGY_STEPS = [
 const SECTORS = [
   {
     title: "Real Estate Special Situations",
-    description: "Last-mile financing | Stuck asset resolution | inventory funding | NPA takeouts.",
+    description: "Last-mile financing | Stuck asset resolution | Inventory funding | NPA takeouts.",
     icon: Building
   },
   {
@@ -116,7 +116,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             />
           </div>
           
-          {/* Layered Gradients - Made darker for "Scorpio" vibe */}
+          {/* Layered Gradients */}
           <div className="absolute inset-0 bg-slate-950/60 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-900/30" />
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
@@ -133,7 +133,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </span>
               </div>
 
-              {/* H1: Stronger, more Technical */}
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-medium tracking-tight leading-[1.05] mb-8 text-white drop-shadow-xl">
                 Structured Credit & <br className="hidden lg:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500">
@@ -141,7 +140,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </span>
               </h1>
 
-              {/* Subtext: "Principal" Mindset */}
               <p className="text-lg md:text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl font-light border-l border-amber-600/30 pl-6">
                 We don't just find capital. We engineer the structure, mitigate the risk, and deliver the mandate. 
                 <span className="text-slate-200 font-normal"> The pre-AIF platform for complex, mid-market transactions.</span>
@@ -204,7 +202,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Stat 3 - Changed "Key Partners" to "Institutional Counterparties" */}
+              {/* Stat 3 */}
               <div className="py-8 md:px-6 flex items-center gap-4">
                 <Handshake className="text-amber-600 shrink-0" size={24} strokeWidth={1} />
                 <div>
@@ -233,7 +231,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="relative z-10 bg-slate-950 py-24 border-b border-slate-900">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* SECTION A: METHODOLOGY (Renamed to PROTOCOL) */}
+          {/* SECTION A: METHODOLOGY (PROTOCOL) */}
           <div className="mb-24">
              <FadeIn>
               <div className="flex items-end justify-between mb-12">
