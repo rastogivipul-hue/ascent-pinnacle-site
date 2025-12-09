@@ -188,13 +188,24 @@ const AppContent = () => {
                         <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
                           <MapPin size={20} />
                         </div>
-                        <div>
-                          <p className="font-semibold text-slate-900">New Delhi, India</p>
-                          <p className="text-slate-500 text-sm mt-1">
-                            Barakhamba Road, Connaught Place<br />
-                            New Delhi - 110001
-                          </p>
-                        </div>
+                       <div className="mb-6">
+        <p className="font-semibold text-slate-900">New Delhi, India</p>
+        <p className="text-slate-500 text-sm mt-1">
+            Ground Floor, 76D Udhyog Vihar, Phase 4, Sec 18<br />
+            Gurugram - 122001
+        </p>
+    </div>
+    
+    {/* --- New Address: Mumbai --- */}
+    <div>
+        <p className="font-semibold text-slate-900">Mumbai, India</p>
+        <p className="text-slate-500 text-sm mt-1">
+            C - 20, G Block Rd, G Block BKC<br />
+            Bandra Kurla Complex, Bandra East<br />
+            Mumbai, Maharashtra 400051
+        </p>
+    </div>
+</div>
                       </div>
 
                       <div className="flex items-center gap-4 group">
