@@ -18,9 +18,11 @@ import {
   Radio
 } from 'lucide-react';
 
+// Make sure these components exist in your UI file. 
+// If the path is different, update './UI' to the correct path.
 import { CountUp, FadeIn } from './UI';
 
-// --- DATA CONSTANTS ---
+// --- DATA CONSTANTS (The "Principal" Authority Content) ---
 
 const METHODOLOGY_STEPS = [
   {
@@ -116,7 +118,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             />
           </div>
           
-          {/* Layered Gradients */}
+          {/* Layered Gradients for Dark Mode Authority */}
           <div className="absolute inset-0 bg-slate-950/60 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-900/30" />
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
@@ -231,7 +233,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="relative z-10 bg-slate-950 py-24 border-b border-slate-900">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* SECTION A: METHODOLOGY (PROTOCOL) */}
+          {/* SECTION A: THE EXECUTION PROTOCOL */}
           <div className="mb-24">
              <FadeIn>
               <div className="flex items-end justify-between mb-12">
