@@ -97,7 +97,7 @@ const AppContent = () => {
               Ascent<span className="text-amber-500">Pinnacle</span>
             </div>
             <div className="text-[9px] text-slate-400 uppercase tracking-[0.3em] group-hover:text-amber-500 transition-colors">
-              Capital Advisors
+              Private Credit | Special Situations | Structured Finance
             </div>
           </Link>
 
