@@ -41,7 +41,7 @@ const ScrollToTop = () => {
 const AppContent = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+   
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -92,7 +92,7 @@ const AppContent = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          
+           
           <Link to="/" className="cursor-pointer z-50 group">
             <div className="text-2xl font-serif text-white tracking-tight">
               Ascent<span className="text-amber-500">Pinnacle</span>
@@ -179,40 +179,39 @@ const AppContent = () => {
                   <span className="text-amber-600 font-bold tracking-widest text-xs uppercase mb-3">Get in Touch</span>
                   <h2 className="text-4xl md:text-5xl font-serif text-slate-900 text-center">Contact Us</h2>
                 </div>
-                
+                 
                 <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                   <div className="bg-slate-50 p-8 rounded-sm border border-slate-200 hover:shadow-lg transition-shadow duration-300">
                     <h3 className="text-xl font-serif text-slate-900 mb-6 border-b border-slate-200 pb-4">Corporate Office</h3>
                     <div className="space-y-6">
+                      
+                      {/* ADDRESS SECTION */}
                       <div className="flex items-start gap-4 group">
                         <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
                           <MapPin size={20} />
                         </div>
-                       <div className="mb-6">
-        <p className="font-semibold text-slate-900">New Delhi, India</p>
-        <p className="text-slate-500 text-sm mt-1">
-            Ground Floor, 76D Udhyog Vihar, Phase 4, Sec 18<br />
-            Gurugram - 122001
-        </p>
-    </div>
-    
-    {/* --- New Address: Mumbai --- */}
-    <div>
-        <p className="font-semibold text-slate-900">Mumbai, India</p>
-        <p className="text-slate-500 text-sm mt-1">
-            C - 20, G Block Rd, G Block BKC<br />
-            Bandra Kurla Complex, Bandra East<br />
-            Mumbai, Maharashtra 400051
-        </p>
-    </div>
-</div>
-                      </div>
-
-                      <div className="flex items-center gap-4 group">
-                        <div className="p-3 bg-white border border-slate-200 rounded-full text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                          <Phone size={20} />
+                        
+                        {/* Wrapper for both addresses to ensure vertical stacking */}
+                        <div>
+                            {/* Address 1: Gurugram */}
+                            <div className="mb-6">
+                                <p className="font-semibold text-slate-900">New Delhi, India</p>
+                                <p className="text-slate-500 text-sm mt-1">
+                                    Ground Floor, 76D Udhyog Vihar, Phase 4, Sec 18<br />
+                                    Gurugram - 122001
+                                </p>
+                            </div>
+                            
+                            {/* Address 2: Mumbai */}
+                            <div>
+                                <p className="font-semibold text-slate-900">Mumbai, India</p>
+                                <p className="text-slate-500 text-sm mt-1">
+                                    C - 20, G Block Rd, G Block BKC<br />
+                                    Bandra Kurla Complex, Bandra East<br />
+                                    Mumbai, Maharashtra 400051
+                                </p>
+                            </div>
                         </div>
-                        <p className="text-slate-600 group-hover:text-slate-900 transition-colors">+91 11 1234 5678</p>
                       </div>
 
                       <div className="flex items-center gap-4 group">
@@ -259,7 +258,7 @@ const AppContent = () => {
                   </div>
                   <div className="prose prose-slate prose-lg text-slate-600">
                     <p className="text-sm text-slate-400 uppercase tracking-widest mb-6">Last Updated: December 2025</p>
-                    
+                     
                     <p className="lead text-xl text-slate-800 font-medium">
                       At Ascent Pinnacle Capital, confidentiality is the cornerstone of our practice. This policy outlines how we handle the sensitive corporate and financial data collected during our advisory mandates.
                     </p>
@@ -315,7 +314,7 @@ const AppContent = () => {
                   </div>
                   <div className="prose prose-slate prose-lg text-slate-600">
                     <p className="text-sm text-slate-400 uppercase tracking-widest mb-6">Effective Date: December 6, 2025</p>
-                    
+                     
                     <p className="lead text-xl text-slate-800 font-medium">
                       These Terms of Engagement govern the advisory relationship between Ascent Pinnacle Capital ("The Advisor") and the Client. By engaging our services, the Client agrees to the following stipulations.
                     </p>
@@ -413,7 +412,7 @@ const AppContent = () => {
             </ul>
           </div>
         </div>
-        
+         
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
           <p>© {new Date().getFullYear()} Ascent Pinnacle Capital Advisors. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
