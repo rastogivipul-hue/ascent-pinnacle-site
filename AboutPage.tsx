@@ -35,7 +35,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Ashish Kumar",
-    role: "President - Corporate Finance",
+    role: "President Corporate Finance",
     imageUrl: akpic,
     linkedin: "https://www.linkedin.com/in/ashish-kumar-92a93b12b/",
     email: "ashish.kumar@ascentpinnacle.com",
