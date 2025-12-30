@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ascent Pinnacle Capital</title>
     <meta name="description" content="Maximizing Your Financial Ascent. Premier Investment Banking & Structured Finance." />
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <script>
-      tailwind.config = {
+      window.tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
@@ -19,16 +22,17 @@
             },
             colors: {
               brand: {
-                dark: '#0B1E3D', // Dark Navy Blue (from Logo)
-                primary: '#1e293b', // Slate 800 (Secondary Dark)
-                accent: '#F59E0B', // Gold/Amber (from Logo)
-                light: '#ffffff', // White
+                dark: '#0B1E3D',
+                primary: '#1e293b',
+                accent: '#F59E0B',
+                light: '#ffffff',
               }
             }
           }
         }
       }
     </script>
+
     <style>
       body {
         -webkit-font-smoothing: antialiased;
@@ -42,20 +46,12 @@
         to { opacity: 1; transform: translateY(0); }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <link rel="stylesheet" href="index.css?v=1.0.1">
+  </head>
   <body class="bg-white text-slate-800">
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+
+    <script type="module" src="index.tsx"></script>
+  </body>
 </html>
