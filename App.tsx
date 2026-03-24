@@ -26,6 +26,7 @@ import ServicesPage from './Services';
 import TransactionsPage from './Transactions';
 import InsightsPage from './InsightsPage';
 import BlogPost from './BlogPost';
+import PassiveIncomePage from './PassiveIncomePage';
 
 // --- SCROLL HELPER ---
 const ScrollToTop = () => {
@@ -76,6 +77,7 @@ const AppContent = () => {
     { path: '/track-record', label: 'Track Record' },
     { path: '/insights', label: 'Insights' },
     { path: '/team', label: 'Team' },
+    { path: '/yield-solutions', label: 'Yield Solutions' },
   ];
 
   return (
@@ -169,6 +171,7 @@ const AppContent = () => {
           <Route path="/track-record" element={<TransactionsPage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/:id" element={<BlogPost />} />
+          <Route path="/yield-solutions" element={<PassiveIncomePage />} />
 
           {/* Contact Page */}
           <Route path="/contact" element={
@@ -399,6 +402,7 @@ const AppContent = () => {
               <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/expertise">Debt Syndication</Link></li>
               <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/expertise">Distressed Resolution</Link></li>
               <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/expertise">M&A Advisory</Link></li>
+              <li className="hover:text-amber-500 cursor-pointer transition-colors"><Link to="/yield-solutions">Yield Solutions</Link></li>
             </ul>
           </div>
 
