@@ -3,55 +3,90 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ascent Pinnacle Capital</title>
-    <meta name="description" content="Maximizing Your Financial Ascent. Premier Investment Banking & Structured Finance." />
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <script>
-      window.tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
-            },
-            colors: {
-              brand: {
-                dark: '#0B1E3D',
-                primary: '#1e293b',
-                accent: '#F59E0B',
-                light: '#ffffff',
-              }
-            }
-          }
+
+    <!-- PRIMARY META -->
+    <title>Ascent Pinnacle Capital | Private Credit & Structured Finance India</title>
+    <meta name="description" content="Ascent Pinnacle Capital is an integrated investment banking platform specialising in debt syndication, structured finance, distressed asset resolution, and M&A advisory for India's mid-market." />
+    <meta name="keywords" content="private credit India, debt syndication, structured finance, distressed assets, IBC advisory, investment banking India, special situations, NPA resolution" />
+    <link rel="canonical" href="https://ascentpinnacle.com/" />
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://ascentpinnacle.com/" />
+    <meta property="og:site_name"   content="Ascent Pinnacle Capital" />
+    <meta property="og:title"       content="Ascent Pinnacle Capital | Private Credit & Structured Finance" />
+    <meta property="og:description" content="Bridging institutional capital and mid-market opportunities in India. Debt syndication, distressed resolution, and bespoke structured finance." />
+    <meta property="og:image"       content="https://ascentpinnacle.com/og-image.jpg" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"    content="Ascent Pinnacle Capital - Private Credit & Structured Finance" />
+    <meta property="og:locale"      content="en_IN" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Ascent Pinnacle Capital | Private Credit & Structured Finance" />
+    <meta name="twitter:description" content="Bridging institutional capital and mid-market opportunities in India." />
+    <meta name="twitter:image"       content="https://ascentpinnacle.com/og-image.jpg" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "Ascent Pinnacle Capital",
+      "alternateName": "Ascent Pinnacle Capital Advisors",
+      "url": "https://ascentpinnacle.com",
+      "logo": "https://ascentpinnacle.com/og-image.jpg",
+      "description": "An integrated investment banking platform specialising in private credit, debt syndication, structured finance, and distressed asset resolution for India's mid-market.",
+      "foundingDate": "2010",
+      "areaServed": "IN",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Ground Floor, 76D Udhyog Vihar, Phase 4, Sec 18",
+          "addressLocality": "Gurugram",
+          "postalCode": "122001",
+          "addressRegion": "Haryana",
+          "addressCountry": "IN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "C-20, G Block Rd, G Block BKC, Bandra Kurla Complex, Bandra East",
+          "addressLocality": "Mumbai",
+          "postalCode": "400051",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
         }
-      }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@ascentpinnacle.com",
+        "contactType": "business enquiries",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/ascent-pinnacle-capital-limited/"
+      ]
+    }
     </script>
 
-    <style>
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .fade-in {
-        animation: fadeIn 0.8s ease-in-out;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
-
-    <link rel="stylesheet" href="index.css?v=1.0.1">
+    <!-- GOOGLE ANALYTICS 4 - Replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { page_path: window.location.pathname });
+    </script>
   </head>
-  <body class="bg-white text-slate-800">
-    <div id="root"></div>
 
-    <script type="module" src="index.tsx"></script>
+  <body class="bg-white text-slate-800 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
